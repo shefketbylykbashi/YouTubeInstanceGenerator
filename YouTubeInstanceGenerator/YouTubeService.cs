@@ -3,6 +3,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 public class YouTubeService
 {
@@ -28,33 +29,57 @@ public class YouTubeService
         {
             var snippet = item.GetProperty("snippet");
 
+            var title = snippet.GetProperty("title").GetString() ?? "";
+            var channelTitle = snippet.GetProperty("channelTitle").GetString() ?? "";
+
             results.Add(new YouTubeVideo
             {
                 VideoId = item.GetProperty("id").GetProperty("videoId").GetString(),
-                Title = snippet.GetProperty("title").GetString(),
-                ChannelTitle = snippet.GetProperty("channelTitle").GetString(),
-                CategoryId = "unknown"
+                Title = title,
+                ChannelTitle = channelTitle,
+                CategoryId = "unknown" // search API doesn't give categoryId directly
             });
         }
 
         return results;
     }
 
-    // Genre Mapping Option A
-    public static string MapCategoryToGenre(string categoryId)
+    public static string MapCategoryToGenre(string categoryId, string title)
     {
-        return categoryId switch
+        // If someday you fetch real categoryId from /videos API, you can still keep this:
+        switch (categoryId)
         {
-            "25" => "news",
-            "17" => "sports",
-            "10" => "music",
-            "1" => "movie",
-            "24" => "drama",
-            "22" => "talk",
-            "20" => "kids",
-            "27" => "documentary",
-            _ => "drama"
-        };
+            case "25": return "news";
+            case "17": return "sports";
+            case "10": return "music";
+            case "1": return "movie";
+            case "24": return "drama";
+            case "22": return "talk";
+            case "20": return "kids";
+            case "27": return "documentary";
+        }
+
+        // Fallback: infer genre from title keywords
+        var t = title.ToLowerInvariant();
+
+        if (t.Contains("news") || t.Contains("breaking"))
+            return "news";
+        if (t.Contains("football") || t.Contains("soccer") || t.Contains("nba") || t.Contains("live match") || t.Contains("sports"))
+            return "sports";
+        if (t.Contains("music") || t.Contains("dj") || t.Contains("song") || t.Contains("remix"))
+            return "music";
+        if (t.Contains("podcast") || t.Contains("talk") || t.Contains("interview"))
+            return "talk";
+        if (t.Contains("kids") || t.Contains("cartoon") || t.Contains("children"))
+            return "kids";
+        if (t.Contains("documentary") || t.Contains("history"))
+            return "documentary";
+        if (t.Contains("game") || t.Contains("gaming") || t.Contains("fortnite") || t.Contains("minecraft") || t.Contains("pubg"))
+            return "gaming";
+        if (t.Contains("tech") || t.Contains("review") || t.Contains("unboxing"))
+            return "tech";
+
+        return "variety"; // generic fallback
     }
 }
 
