@@ -9,7 +9,7 @@ class Program
     static async Task Main(string[] args)
     {
         //var settings = JsonSerializer.Deserialize<Dictionary<string, string>>(File.ReadAllText("C:\\Users\\shefk\\source\\repos\\YouTubeInstanceGenerator\\YouTubeInstanceGenerator\\appsettings.json"));
-        string apiKey = "AIzaSyDtv2jbYTPrFD_gg55kUm0sHVannpb8yEc";
+        string apiKey = "AIzaSyDtv2jbYEc";
         int maxStreams = 20;
 
         var yt = new YouTubeService(apiKey);
