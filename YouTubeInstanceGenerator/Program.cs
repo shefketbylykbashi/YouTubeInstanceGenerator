@@ -131,7 +131,7 @@ class Program
 
                     channel.programs.Add(new ProgramItem
                     {
-                        program_id = $"{prog.VideoId}_{programIndex}",
+                        program_id = $"CH{channelId}_P{programIndex}",
                         start = start,
                         end = end,
                         genre = PickProgramGenre(rand, baseGenre),
