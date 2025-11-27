@@ -28,21 +28,38 @@ class Program
 
         // Shuffle and take subset for channels
         var rand = new Random();
+        // Shuffle livestreams randomly
         var shuffledStreams = streams.OrderBy(_ => rand.Next()).ToList();
 
-        // Divide livestreams evenly to channels
-        var channelsData = new List<List<YouTubeVideo>>();
-        int index = 0;
+        int programsPerChannel = 5; // ensure each channel has enough unique content
 
-        for (int c = 0; c < maxChannelsToUse; c++)
+        var channelsData = new List<List<YouTubeVideo>>();
+        for (int i = 0; i < maxChannelsToUse; i++)
         {
             channelsData.Add(new List<YouTubeVideo>());
         }
 
+        // Assign streams evenly first
+        int idx = 0;
         foreach (var s in shuffledStreams)
         {
-            channelsData[index % maxChannelsToUse].Add(s);
-            index++;
+            channelsData[idx % maxChannelsToUse].Add(s);
+            idx++;
+        }
+
+        // Ensure every channel has enough streams
+        for (int c = 0; c < maxChannelsToUse; c++)
+        {
+            while (channelsData[c].Count < programsPerChannel)
+            {
+                // Pick another random stream (but different than the one already assigned)
+                var extra = shuffledStreams[rand.Next(shuffledStreams.Count)];
+
+                if (!channelsData[c].Any(x => x.VideoId == extra.VideoId))
+                {
+                    channelsData[c].Add(extra);
+                }
+            }
         }
 
         int channelCount = maxChannelsToUse;
