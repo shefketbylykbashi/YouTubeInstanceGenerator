@@ -13,7 +13,7 @@ class Program
     {
         // >>> CONFIG <<<
         string apiKey = "AIzaSyDtv2jbYTPrFD_gg55kUm0sHVannpb8yEc";   // TODO: replace
-        int maxStreams = 80;                   // fetch more streams → more potential channels
+        int maxStreams = 1000;                   // fetch more streams → more potential channels
         int maxChannelsToUse = 40;             // cap channels used in instance
         bool includeLink = true;               // control whether link is included in JSON
 
@@ -28,12 +28,18 @@ class Program
 
         // Shuffle and take subset for channels
         var rand = new Random();
-        var selectedStreams = streams
+        var groupedChannels = streams
+            .GroupBy(s => s.ChannelTitle)
+            .Select(g => new
+            {
+                ChannelName = g.Key,
+                Programs = g.Take(rand.Next(3, 8)).ToList() // each channel gets 3–7 livestream “programs”
+            })
             .OrderBy(_ => Guid.NewGuid())
             .Take(maxChannelsToUse)
             .ToList();
 
-        int channelCount = selectedStreams.Count;
+        int channelCount = groupedChannels.Count;
 
         // >>> REALISTIC TV DAY: 07:00–23:00 <<<
         int opening = 7 * 60;   // 07:00 → 420
@@ -60,60 +66,62 @@ class Program
 
         // >>> BUILD CHANNELS WITH CLEAN, CONTINUOUS SCHEDULES <<<
         int channelId = 0;
-        foreach (var s in selectedStreams)
+        foreach (var channelGroup in groupedChannels)
         {
-            string baseGenre = YouTubeService.MapCategoryToGenre(s.CategoryId, s.Title);
+            string baseGenre = YouTubeService.MapCategoryToGenre(
+                channelGroup.Programs.First().CategoryId,
+                channelGroup.Programs.First().Title);
 
             var channel = new Channel
             {
                 channel_id = channelId,
-                channel_name = s.ChannelTitle,
+                channel_name = channelGroup.ChannelName,
                 programs = new List<ProgramItem>()
             };
 
-            // Start exactly at opening_time like RTK1 / KTV examples
             int currentTime = opening;
             int programIndex = 0;
 
-            // We keep scheduling until we reach the closing time
+            // repeat livestreams to cover the whole day
             while (currentTime < closing)
             {
-                int remaining = closing - currentTime;
-
-                if (remaining < minDuration)
-                    break;
-
-                // Prefer medium lengths (triangular) but respect remaining time
-                int maxAllowed = Math.Min(180, remaining);
-                int duration = Triangular(rand, minDuration, maxAllowed);
-                int start = currentTime;
-                int end = start + duration;
-
-                // If we are very close to closing, just fill to the end
-                if (closing - end < minDuration)
+                foreach (var prog in channelGroup.Programs)
                 {
-                    end = closing;
-                    duration = end - start;
+                    if (currentTime >= closing)
+                        break;
+
+                    int remaining = closing - currentTime;
+                    if (remaining < minDuration)
+                        break;
+
+                    int duration = Triangular(rand, minDuration, Math.Min(180, remaining));
+                    int start = currentTime;
+                    int end = start + duration;
+
+                    if (closing - end < minDuration)
+                    {
+                        end = closing; // force fill last block
+                        duration = end - start;
+                    }
+
+                    var genre = PickProgramGenre(rand, baseGenre);
+                    int score = rand.Next(40, 101);
+
+                    channel.programs.Add(new ProgramItem
+                    {
+                        program_id = $"{prog.VideoId}_{programIndex}",  // unique program ID
+                        start = start,
+                        end = end,
+                        genre = genre,
+                        score = score,
+                        link = includeLink ? $"https://www.youtube.com/watch?v={prog.VideoId}" : null
+                    });
+
+                    programIndex++;
+                    currentTime = end;
                 }
-
-                string programGenre = PickProgramGenre(rand, baseGenre);
-                int score = rand.Next(30, 101); // 30–100 more realistic TV scores
-
-                channel.programs.Add(new ProgramItem
-                {
-                    program_id = $"{s.VideoId}_{programIndex}",
-                    start = start,
-                    end = end,
-                    genre = programGenre,
-                    score = score,
-                    link = includeLink ? $"https://www.youtube.com/watch?v={s.VideoId}" : null
-                });
-
-                programIndex++;
-                currentTime = end; // continuous: next program starts when previous ends
             }
 
-            // Only add channels that ended up with at least one program
             if (channel.programs.Any())
                 instance.channels.Add(channel);
 
