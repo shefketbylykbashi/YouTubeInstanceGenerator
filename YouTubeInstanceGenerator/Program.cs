@@ -28,18 +28,24 @@ class Program
 
         // Shuffle and take subset for channels
         var rand = new Random();
-        var groupedChannels = streams
-            .GroupBy(s => s.ChannelTitle)
-            .Select(g => new
-            {
-                ChannelName = g.Key,
-                Programs = g.Take(rand.Next(3, 8)).ToList() // each channel gets 3–7 livestream “programs”
-            })
-            .OrderBy(_ => Guid.NewGuid())
-            .Take(maxChannelsToUse)
-            .ToList();
+        var shuffledStreams = streams.OrderBy(_ => rand.Next()).ToList();
 
-        int channelCount = groupedChannels.Count;
+        // Divide livestreams evenly to channels
+        var channelsData = new List<List<YouTubeVideo>>();
+        int index = 0;
+
+        for (int c = 0; c < maxChannelsToUse; c++)
+        {
+            channelsData.Add(new List<YouTubeVideo>());
+        }
+
+        foreach (var s in shuffledStreams)
+        {
+            channelsData[index % maxChannelsToUse].Add(s);
+            index++;
+        }
+
+        int channelCount = maxChannelsToUse;
 
         // >>> REALISTIC TV DAY: 07:00–23:00 <<<
         int opening = 7 * 60;   // 07:00 → 420
@@ -66,26 +72,28 @@ class Program
 
         // >>> BUILD CHANNELS WITH CLEAN, CONTINUOUS SCHEDULES <<<
         int channelId = 0;
-        foreach (var channelGroup in groupedChannels)
+
+        foreach (var channelPrograms in channelsData)
         {
+            if (channelPrograms.Count == 0) continue;
+
             string baseGenre = YouTubeService.MapCategoryToGenre(
-                channelGroup.Programs.First().CategoryId,
-                channelGroup.Programs.First().Title);
+                channelPrograms.First().CategoryId,
+                channelPrograms.First().Title);
 
             var channel = new Channel
             {
                 channel_id = channelId,
-                channel_name = channelGroup.ChannelName,
+                channel_name = $"Channel {channelId + 1}",
                 programs = new List<ProgramItem>()
             };
 
             int currentTime = opening;
             int programIndex = 0;
 
-            // repeat livestreams to cover the whole day
             while (currentTime < closing)
             {
-                foreach (var prog in channelGroup.Programs)
+                foreach (var prog in channelPrograms)
                 {
                     if (currentTime >= closing)
                         break;
@@ -94,27 +102,26 @@ class Program
                     if (remaining < minDuration)
                         break;
 
-                    int duration = Triangular(rand, minDuration, Math.Min(180, remaining));
+                    int duration = Triangular(rand, minDuration, Math.Min(200, remaining));
                     int start = currentTime;
                     int end = start + duration;
 
                     if (closing - end < minDuration)
                     {
-                        end = closing; // force fill last block
+                        end = closing;
                         duration = end - start;
                     }
 
-                    var genre = PickProgramGenre(rand, baseGenre);
-                    int score = rand.Next(40, 101);
-
                     channel.programs.Add(new ProgramItem
                     {
-                        program_id = $"{prog.VideoId}_{programIndex}",  // unique program ID
+                        program_id = $"{prog.VideoId}_{programIndex}",
                         start = start,
                         end = end,
-                        genre = genre,
-                        score = score,
-                        link = includeLink ? $"https://www.youtube.com/watch?v={prog.VideoId}" : null
+                        genre = PickProgramGenre(rand, baseGenre),
+                        score = rand.Next(40, 101),
+                        link = includeLink
+                            ? $"https://www.youtube.com/watch?v={prog.VideoId}"
+                            : null
                     });
 
                     programIndex++;
@@ -122,13 +129,10 @@ class Program
                 }
             }
 
-            if (channel.programs.Any())
-                instance.channels.Add(channel);
-
+            instance.channels.Add(channel);
             channelId++;
         }
 
-        // Update channels_count to actual number created
         instance.channels_count = instance.channels.Count;
 
         // >>> OUTPUT JSON <<<
@@ -151,47 +155,53 @@ class Program
     {
         var blocks = new List<PriorityBlock>();
 
-        // Example-style:
-        //  - Morning block near opening (e.g. 07:00–09:00)
-        //  - Prime-time block near closing (e.g. last 2–3 hours)
+        int H(int hour) => hour * 60;
 
-        int daySpan = closing - opening;
+        // Helper to shuffle and pick channel subsets
+        List<int> PickTopChannels(int minPercent)
+        {
+            int count = Math.Max(2, (channels * minPercent) / 100);
+            return Enumerable.Range(0, channels)
+                .OrderBy(_ => rand.Next())
+                .Take(count)
+                .ToList();
+        }
 
-        // Morning block
-        int morningStart = opening + 60; // 1h after opening
-        int morningEnd = Math.Min(closing, morningStart + 90); // 1.5h
-        var morningAllowed = SampleChannelSubset(channels, rand, min: 3, max: Math.Max(3, channels / 4));
+        // SMALL SHIFT for dynamic realism
+        int shift() => rand.Next(-20, 21);
 
+        // 1️⃣ MORNING PRIORITY — News focus
+        int morningStart = H(7) + shift();
+        int morningEnd = H(9) + shift();
         blocks.Add(new PriorityBlock
         {
-            start = morningStart,
-            end = morningEnd,
-            allowed_channels = morningAllowed
+            start = Math.Max(opening, morningStart),
+            end = Math.Min(closing, morningEnd),
+            allowed_channels = PickTopChannels(35) // Top 35% channels
         });
 
-        // Prime-time block in the last quarter of the day
-        int primeStart = opening + (int)(daySpan * 0.75);
-        int primeEnd = closing; // last hours until closing
-        var primeAllowed = SampleChannelSubset(channels, rand, min: 4, max: Math.Max(4, channels / 3));
-
+        // 2️⃣ AFTERNOON PRIORITY — Kids / entertainment
+        int afternoonStart = H(15) + shift();
+        int afternoonEnd = H(17) + shift();
         blocks.Add(new PriorityBlock
         {
-            start = primeStart,
-            end = primeEnd,
-            allowed_channels = primeAllowed
+            start = Math.Max(opening, afternoonStart),
+            end = Math.Min(closing, afternoonEnd),
+            allowed_channels = PickTopChannels(45) // Top 45%
         });
 
-        return blocks;
-    }
+        // 3️⃣ PRIME TIME — Highest priority 🏆
+        int primeStart = H(19) + shift();
+        int primeEnd = H(22) + shift();
+        blocks.Add(new PriorityBlock
+        {
+            start = Math.Max(opening, primeStart),
+            end = Math.Min(closing, primeEnd),
+            allowed_channels = PickTopChannels(60) // Top 60% channels allowed
+        });
 
-    static List<int> SampleChannelSubset(int channels, Random rand, int min, int max)
-    {
-        int count = rand.Next(min, Math.Max(min + 1, max + 1));
-        count = Math.Min(count, channels);
-
-        var indices = Enumerable.Range(0, channels).ToList();
-        indices = indices.OrderBy(_ => rand.Next()).Take(count).ToList();
-        return indices;
+        // Sort blocks by starting time to avoid weird overlaps
+        return blocks.OrderBy(b => b.start).ToList();
     }
 
     // -----------------------------------------------
@@ -200,55 +210,91 @@ class Program
     static List<TimePreference> GenerateStructuredPreferences(int opening, int closing)
     {
         var prefs = new List<TimePreference>();
+        var rand = new Random();
 
-        int daySpan = closing - opening;
-        // Roughly split day into 5 blocks like your example
-        int block = daySpan / 5;
+        // Dynamic shift helper (smaller shift to avoid chaos)
+        int shift() => rand.Next(-20, 21); // +/- up to 20 min
 
-        // Block 1: early morning – news
-        prefs.Add(new TimePreference
+        // Genre pools by time of day
+        string Pick(params string[] arr) => arr[rand.Next(arr.Length)];
+
+        int current = opening;
+
+        // Block 1: Morning – News/Talk
         {
-            start = opening,
-            end = opening + block,
-            preferred_genre = "news",
-            bonus = 30
-        });
+            int end = Math.Min(closing, (9 * 60) + shift());
+            prefs.Add(new TimePreference
+            {
+                start = current,
+                end = end,
+                preferred_genre = Pick("news", "talk"),
+                bonus = rand.Next(40, 80)
+            });
+            current = end;
+        }
 
-        // Block 2: morning – talk / kids
-        prefs.Add(new TimePreference
+        // Block 2: Daytime – Talk/Kids/Documentary
         {
-            start = opening + block,
-            end = opening + 2 * block,
-            preferred_genre = "talk",
-            bonus = 20
-        });
+            int end = Math.Min(closing, (12 * 60) + shift());
+            prefs.Add(new TimePreference
+            {
+                start = current,
+                end = end,
+                preferred_genre = Pick("talk", "kids", "documentary"),
+                bonus = rand.Next(20, 45)
+            });
+            current = end;
+        }
 
-        // Block 3: midday – drama
-        prefs.Add(new TimePreference
+        // Block 3: Midday – Drama/Documentary
         {
-            start = opening + 2 * block,
-            end = opening + 3 * block,
-            preferred_genre = "drama",
-            bonus = 25
-        });
+            int end = Math.Min(closing, (15 * 60) + shift());
+            prefs.Add(new TimePreference
+            {
+                start = current,
+                end = end,
+                preferred_genre = Pick("drama", "documentary"),
+                bonus = rand.Next(25, 50)
+            });
+            current = end;
+        }
 
-        // Block 4: afternoon / evening – movie
-        prefs.Add(new TimePreference
+        // Block 4: Afternoon – Kids/Gaming
         {
-            start = opening + 3 * block,
-            end = opening + 4 * block,
-            preferred_genre = "movie",
-            bonus = 40
-        });
+            int end = Math.Min(closing, (18 * 60) + shift());
+            prefs.Add(new TimePreference
+            {
+                start = current,
+                end = end,
+                preferred_genre = Pick("kids", "gaming"),
+                bonus = rand.Next(30, 55)
+            });
+            current = end;
+        }
 
-        // Block 5: late evening – music
-        prefs.Add(new TimePreference
+        // Block 5: Prime Time – Sports/Movie/Drama
         {
-            start = opening + 4 * block,
-            end = closing,
-            preferred_genre = "music",
-            bonus = 15
-        });
+            int end = Math.Min(closing, (21 * 60) + shift());
+            prefs.Add(new TimePreference
+            {
+                start = current,
+                end = end,
+                preferred_genre = Pick("sports", "movie", "drama"),
+                bonus = rand.Next(70, 120)
+            });
+            current = end;
+        }
+
+        // Block 6: Evening – Music/Talk/Gaming/Variety
+        {
+            prefs.Add(new TimePreference
+            {
+                start = current,
+                end = closing,
+                preferred_genre = Pick("music", "talk", "gaming", "variety"),
+                bonus = rand.Next(25, 60)
+            });
+        }
 
         return prefs;
     }
