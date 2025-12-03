@@ -19,7 +19,26 @@ class Program
 
         var yt = new YouTubeService(apiKey);
         var streams = await yt.GetLiveStreamsAsync(maxStreams);
+        var live = await yt.GetLiveStreamsAsync('n', null, null, 20);
+        Console.WriteLine("LIVE NOW: " + live.Count);
 
+
+        var past = await yt.GetLiveStreamsAsync(
+        'p',
+        DateTime.UtcNow.AddHours(-4),
+        DateTime.UtcNow,
+        20);
+        Console.WriteLine("PAST: " + past.Count);
+
+        var future = await yt.GetLiveStreamsAsync(
+        'f',
+        DateTime.UtcNow,
+        DateTime.UtcNow.AddDays(2),
+        20);
+        Console.WriteLine("FUTURE: " + future.Count);
+
+        
+        //var streams = past;
         if (streams.Count == 0)
         {
             Console.WriteLine("No live streams fetched.");

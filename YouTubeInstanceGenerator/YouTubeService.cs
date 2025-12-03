@@ -44,6 +44,129 @@ public class YouTubeService
         return results;
     }
 
+    public async Task<List<YouTubeVideo>> GetLiveStreamsAsync(
+    char mode,
+    DateTime? startDate,
+    DateTime? endDate,
+    int maxResults)
+    {
+        Console.WriteLine($"Mode: {mode}, Start: {startDate}, End: {endDate}");
+
+        var results = new List<YouTubeVideo>();
+        string eventType;
+        string dateParams = "";
+
+        switch (mode)
+        {
+            case 'n': // Live NOW → MUST NOT use dates
+                eventType = "live";
+                break;
+
+            case 'p': // Past streams → MUST use dates
+                if (startDate == null || endDate == null)
+                    throw new ArgumentException("Past mode requires start and end dates!");
+
+                eventType = "completed";
+                dateParams =
+                    $"&publishedAfter={startDate.Value.ToUniversalTime():o}" +
+                    $"&publishedBefore={endDate.Value.ToUniversalTime():o}";
+                break;
+
+            case 'f': // Future → MUST use dates
+                if (startDate == null || endDate == null)
+                    throw new ArgumentException("Future mode requires start and end dates!");
+
+                eventType = "upcoming";
+                dateParams =
+                    $"&publishedAfter={startDate.Value.ToUniversalTime():o}" +
+                    $"&publishedBefore={endDate.Value.ToUniversalTime():o}";
+                break;
+
+            default:
+                throw new ArgumentException("Mode must be 'p', 'n', or 'f'");
+        }
+
+        string qParam = mode == 'n' ? "&q=live" : ""; // Only needed for LIVE NOW
+
+        string searchUrl =
+            $"https://www.googleapis.com/youtube/v3/search" +
+            $"?part=snippet&type=video&eventType={eventType}" +
+            $"{qParam}" +
+            $"{dateParams}" +
+            $"&regionCode=US" +
+            $"&maxResults={Math.Min(maxResults, 50)}" +
+            $"&key={_apiKey}";
+
+        Console.WriteLine("SEARCH URL:");
+        Console.WriteLine(searchUrl);
+
+        string json = await _http.GetStringAsync(searchUrl);
+        Console.WriteLine("SEARCH RESPONSE:");
+        Console.WriteLine(json);
+
+        using var searchDoc = JsonDocument.Parse(json);
+
+        var items = searchDoc.RootElement
+            .GetProperty("items")
+            .EnumerateArray()
+            .ToList();
+
+        Console.WriteLine($"Found items: {items.Count}");
+
+        if (!items.Any())
+            return results;
+
+        var ids = items
+            .Select(i => i.GetProperty("id").GetProperty("videoId").GetString())
+            .Where(id => !string.IsNullOrEmpty(id))
+            .Distinct()
+            .ToList();
+
+        Console.WriteLine($"Unique IDs: {ids.Count}");
+
+        if (!ids.Any())
+            return results;
+
+        string videosUrl =
+            $"https://www.googleapis.com/youtube/v3/videos" +
+            $"?part=snippet,liveStreamingDetails" +
+            $"&id={string.Join(",", ids)}" +
+            $"&key={_apiKey}";
+
+        Console.WriteLine("VIDEOS URL:");
+        Console.WriteLine(videosUrl);
+
+        var videosJson = await _http.GetStringAsync(videosUrl);
+        Console.WriteLine("VIDEOS RESPONSE:");
+        Console.WriteLine(videosJson);
+
+        using var videosDoc = JsonDocument.Parse(videosJson);
+
+        foreach (var video in videosDoc.RootElement.GetProperty("items").EnumerateArray())
+        {
+            var snippet = video.GetProperty("snippet");
+
+            // Titles are never null, fail-safe backup
+            string title = snippet.GetProperty("title").GetString() ?? "Untitled";
+            string channel = snippet.GetProperty("channelTitle").GetString() ?? "Unknown Channel";
+
+            results.Add(new YouTubeVideo
+            {
+                VideoId = video.GetProperty("id").GetString(),
+                Title = title,
+                ChannelTitle = channel,
+                CategoryId = "unknown"
+            });
+
+            if (results.Count >= maxResults)
+                break;
+        }
+
+        Console.WriteLine($"FINAL COUNT: {results.Count}");
+        return results;
+    }
+
+
     public static string MapCategoryToGenre(string categoryId, string title)
     {
         // If someday you fetch real categoryId from /videos API, you can still keep this:
