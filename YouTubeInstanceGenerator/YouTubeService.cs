@@ -77,9 +77,9 @@ public class YouTubeService
                     throw new ArgumentException("Future mode requires start and end dates!");
 
                 eventType = "upcoming";
-                dateParams =
-                    $"&publishedAfter={startDate.Value.ToUniversalTime():o}" +
-                    $"&publishedBefore={endDate.Value.ToUniversalTime():o}";
+                // For upcoming streams, we don't use publishedAfter/Before
+                // Instead, we'll filter by scheduledStartTime from liveStreamingDetails
+                dateParams = ""; // Will filter by scheduledStartTime later
                 break;
 
             default:
@@ -87,6 +87,11 @@ public class YouTubeService
         }
 
         string qParam = mode == 'n' ? "&q=live" : ""; // Only needed for LIVE NOW
+        // Add search query for upcoming streams to get better results
+        if (mode == 'f')
+        {
+            qParam = "&q=upcoming+live";
+        }
 
         string searchUrl =
             $"https://www.googleapis.com/youtube/v3/search" +
@@ -149,13 +154,65 @@ public class YouTubeService
             // Titles are never null, fail-safe backup
             string title = snippet.GetProperty("title").GetString() ?? "Untitled";
             string channel = snippet.GetProperty("channelTitle").GetString() ?? "Unknown Channel";
+            
+            DateTime? scheduledStart = null;
+            DateTime? scheduledEnd = null;
+
+            // Extract scheduled times from liveStreamingDetails if available
+            if (video.TryGetProperty("liveStreamingDetails", out var liveDetails))
+            {
+                // Extract scheduledStartTime
+                if (liveDetails.TryGetProperty("scheduledStartTime", out var scheduledStartTime))
+                {
+                    if (DateTime.TryParse(scheduledStartTime.GetString(), out var startTime))
+                    {
+                        scheduledStart = startTime.ToUniversalTime();
+                        Console.WriteLine($"Found scheduledStartTime: {scheduledStart} for video {title}");
+                    }
+                }
+
+                // Check if scheduledEndTime exists (may not be available in videos API)
+                if (liveDetails.TryGetProperty("scheduledEndTime", out var scheduledEndTime))
+                {
+                    if (DateTime.TryParse(scheduledEndTime.GetString(), out var endTime))
+                    {
+                        scheduledEnd = endTime.ToUniversalTime();
+                        Console.WriteLine($"Found scheduledEndTime: {scheduledEnd} for video {title}");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"No scheduledEndTime found for video {title} (may not be available in videos API)");
+                }
+            }
+
+            // For upcoming streams, filter by scheduledStartTime
+            if (mode == 'f' && startDate != null && endDate != null)
+            {
+                if (scheduledStart == null)
+                {
+                    // No scheduledStartTime, skip it
+                    Console.WriteLine("Skipping video - no scheduledStartTime");
+                    continue;
+                }
+                
+                // Only include if scheduled time is within our range
+                if (scheduledStart < startDate.Value.ToUniversalTime() || 
+                    scheduledStart > endDate.Value.ToUniversalTime())
+                {
+                    Console.WriteLine($"Skipping video - scheduled time {scheduledStart} outside range");
+                    continue;
+                }
+            }
 
             results.Add(new YouTubeVideo
             {
                 VideoId = video.GetProperty("id").GetString(),
                 Title = title,
                 ChannelTitle = channel,
-                CategoryId = "unknown"
+                CategoryId = "unknown",
+                ScheduledStartTime = scheduledStart,
+                ScheduledEndTime = scheduledEnd
             });
 
             if (results.Count >= maxResults)
@@ -212,4 +269,6 @@ public class YouTubeVideo
     public string Title { get; set; }
     public string ChannelTitle { get; set; }
     public string CategoryId { get; set; }
+    public DateTime? ScheduledStartTime { get; set; }
+    public DateTime? ScheduledEndTime { get; set; }
 }

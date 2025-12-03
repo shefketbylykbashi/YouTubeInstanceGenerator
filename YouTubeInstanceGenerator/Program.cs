@@ -30,25 +30,160 @@ class Program
         20);
         Console.WriteLine("PAST: " + past.Count);
 
+        // Expand date range for future streams - look further ahead
         var future = await yt.GetLiveStreamsAsync(
         'f',
         DateTime.UtcNow,
-        DateTime.UtcNow.AddDays(2),
-        20);
+        DateTime.UtcNow.AddDays(7),  // Look 7 days ahead instead of 2
+        50);  // Increase max results to get more options
         Console.WriteLine("FUTURE: " + future.Count);
 
-        
-        //var streams = past;
-        if (streams.Count == 0)
+        // Combine all streams: current streams + upcoming videos
+        var allStreams = new List<YouTubeVideo>(streams);
+        allStreams.AddRange(future);
+        Console.WriteLine($"Total streams (live + upcoming): {allStreams.Count}");
+
+        if (allStreams.Count == 0)
         {
-            Console.WriteLine("No live streams fetched.");
+            Console.WriteLine("No streams fetched.");
             return;
         }
 
-        // Shuffle and take subset for channels
+        // >>> REALISTIC TV DAY: 07:00–23:00 <<<
+        int opening = 7 * 60;   // 07:00 → 420
+        int closing = 23 * 60;  // 23:00 → 1380
+        int minDuration = 30;   // like your example
+        int maxConsecutiveGenre = 2;
+        int switchPenalty = 3;
+        int terminationPenalty = 15;
+
         var rand = new Random();
-        // Shuffle livestreams randomly
-        var shuffledStreams = streams.OrderBy(_ => rand.Next()).ToList();
+
+        // >>> BUILD INSTANCE (using helper function) <<<
+        var instance = BuildInstanceFromStreams(
+            allStreams,
+            maxChannelsToUse,
+            opening,
+            closing,
+            minDuration,
+            maxConsecutiveGenre,
+            switchPenalty,
+            terminationPenalty,
+            includeLink,
+            rand);
+
+        // >>> OUTPUT JSON <<<
+        Directory.CreateDirectory("Output");
+
+        var opts = new JsonSerializerOptions { WriteIndented = true };
+        File.WriteAllText("Output/instance.json",
+            JsonSerializer.Serialize(instance, opts));
+
+        Console.WriteLine("Saved: Output/instance.json");
+
+        // >>> OUTPUT CSV (for debugging / inspection) <<<
+        WriteCSV(instance);
+
+        // >>> GENERATE SEPARATE INSTANCE FOR UPCOMING LIVESTREAMS ONLY <<<
+        Console.WriteLine("\n=== Generating instance for upcoming livestreams only ===");
+        Console.WriteLine($"Upcoming streams count: {future.Count}");
+        
+        try
+        {
+            var upcomingInstance = BuildInstanceFromStreams(future, maxChannelsToUse, opening, closing, minDuration, maxConsecutiveGenre, switchPenalty, terminationPenalty, includeLink, rand);
+            
+            if (upcomingInstance != null)
+            {
+                File.WriteAllText("Output/instance_upcoming.json",
+                    JsonSerializer.Serialize(upcomingInstance, opts));
+                
+                Console.WriteLine("Saved: Output/instance_upcoming.json");
+                Console.WriteLine($"Upcoming instance has {upcomingInstance.channels_count} channels with {upcomingInstance.channels.Sum(c => c.programs.Count)} total programs");
+                
+                // Also create CSV for upcoming instance
+                WriteCSV(upcomingInstance, "Output/livestream_urls_upcoming.csv");
+                Console.WriteLine("Saved: Output/livestream_urls_upcoming.csv");
+            }
+            else
+            {
+                Console.WriteLine("ERROR: BuildInstanceFromStreams returned null for upcoming streams.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"ERROR generating upcoming instance: {ex.Message}");
+            Console.WriteLine($"Stack trace: {ex.StackTrace}");
+        }
+
+        // >>> GENERATE INSTANCE FOR UPCOMING LIVESTREAMS WITH SCHEDULED END TIME ONLY <<<
+        var upcomingWithEndTime = future.Where(v => v.ScheduledEndTime.HasValue).ToList();
+        Console.WriteLine("\n=== Generating instance for upcoming livestreams WITH scheduled end time only ===");
+        Console.WriteLine($"Upcoming streams with end time count: {upcomingWithEndTime.Count}");
+        
+        try
+        {
+            var upcomingWithEndTimeInstance = BuildInstanceFromStreams(upcomingWithEndTime, maxChannelsToUse, opening, closing, minDuration, maxConsecutiveGenre, switchPenalty, terminationPenalty, includeLink, rand);
+            
+            if (upcomingWithEndTimeInstance != null)
+            {
+                File.WriteAllText("Output/instance_upcoming_with_endtime.json",
+                    JsonSerializer.Serialize(upcomingWithEndTimeInstance, opts));
+                
+                Console.WriteLine("Saved: Output/instance_upcoming_with_endtime.json");
+                Console.WriteLine($"Upcoming with end time instance has {upcomingWithEndTimeInstance.channels_count} channels with {upcomingWithEndTimeInstance.channels.Sum(c => c.programs.Count)} total programs");
+                
+                // Also create CSV for upcoming with end time instance
+                WriteCSV(upcomingWithEndTimeInstance, "Output/livestream_urls_upcoming_with_endtime.csv");
+                Console.WriteLine("Saved: Output/livestream_urls_upcoming_with_endtime.csv");
+            }
+            else
+            {
+                Console.WriteLine("ERROR: BuildInstanceFromStreams returned null for upcoming streams with end time.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"ERROR generating upcoming with end time instance: {ex.Message}");
+            Console.WriteLine($"Stack trace: {ex.StackTrace}");
+        }
+    }
+
+    // -----------------------------------------------
+    // HELPER: Build instance from a list of streams
+    // -----------------------------------------------
+    static Instance BuildInstanceFromStreams(
+        List<YouTubeVideo> streamsToUse,
+        int maxChannelsToUse,
+        int opening,
+        int closing,
+        int minDuration,
+        int maxConsecutiveGenre,
+        int switchPenalty,
+        int terminationPenalty,
+        bool includeLink,
+        Random rand)
+    {
+        if (streamsToUse.Count == 0)
+        {
+            Console.WriteLine("No streams provided for instance generation.");
+            // Return empty instance
+            return new Instance
+            {
+                opening_time = opening,
+                closing_time = closing,
+                min_duration = minDuration,
+                max_consecutive_genre = maxConsecutiveGenre,
+                channels_count = 0,
+                switch_penalty = switchPenalty,
+                termination_penalty = terminationPenalty,
+                priority_blocks = new List<PriorityBlock>(),
+                time_preferences = new List<TimePreference>(),
+                channels = new List<Channel>()
+            };
+        }
+
+        // Shuffle streams randomly
+        var shuffledStreams = streamsToUse.OrderBy(_ => rand.Next()).ToList();
 
         int programsPerChannel = 5; // ensure each channel has enough unique content
 
@@ -69,7 +204,7 @@ class Program
         // Ensure every channel has enough streams
         for (int c = 0; c < maxChannelsToUse; c++)
         {
-            while (channelsData[c].Count < programsPerChannel)
+            while (channelsData[c].Count < programsPerChannel && shuffledStreams.Count > channelsData[c].Count)
             {
                 // Pick another random stream (but different than the one already assigned)
                 var extra = shuffledStreams[rand.Next(shuffledStreams.Count)];
@@ -81,15 +216,7 @@ class Program
             }
         }
 
-        int channelCount = maxChannelsToUse;
-
-        // >>> REALISTIC TV DAY: 07:00–23:00 <<<
-        int opening = 7 * 60;   // 07:00 → 420
-        int closing = 23 * 60;  // 23:00 → 1380
-        int minDuration = 30;   // like your example
-        int maxConsecutiveGenre = 2;
-        int switchPenalty = 3;
-        int terminationPenalty = 15;
+        int channelCount = Math.Min(maxChannelsToUse, channelsData.Count(c => c.Count > 0));
 
         // >>> BUILD INSTANCE <<<
         var instance = new Instance
@@ -127,12 +254,102 @@ class Program
             int currentTime = opening;
             int programIndex = 0;
 
+            // Separate upcoming videos: those scheduled for TODAY vs future dates
+            var today = DateTime.UtcNow.Date;
+            var scheduledStartOfDay = new DateTime(today.Year, today.Month, today.Day, 0, 0, 0, DateTimeKind.Utc);
+            
+            var upcomingVideosToday = channelPrograms
+                .Where(p => p.ScheduledStartTime.HasValue && p.ScheduledStartTime.Value.Date == today)
+                .OrderBy(p => p.ScheduledStartTime)
+                .ToList();
+            
+            // All other videos (no scheduled time, or scheduled for future dates) go to regular streams
+            var regularStreams = channelPrograms
+                .Where(p => !p.ScheduledStartTime.HasValue || p.ScheduledStartTime.Value.Date != today)
+                .ToList();
+
+            // First, schedule upcoming videos that are scheduled for TODAY at their actual times
+            foreach (var upcoming in upcomingVideosToday)
+            {
+                if (upcoming.ScheduledStartTime.HasValue)
+                {
+                    // Convert scheduled time to minutes from midnight (UTC)
+                    var scheduledMinutes = (int)(upcoming.ScheduledStartTime.Value - scheduledStartOfDay).TotalMinutes;
+                    
+                    // Only use if it falls within our broadcast day (7 AM - 11 PM)
+                    if (scheduledMinutes >= opening && scheduledMinutes < closing)
+                    {
+                        int start = scheduledMinutes;
+                        int duration;
+                        int end;
+
+                        // Use scheduled end time if available and also today, otherwise use default duration
+                        if (upcoming.ScheduledEndTime.HasValue && upcoming.ScheduledEndTime.Value.Date == today)
+                        {
+                            var scheduledEndMinutes = (int)(upcoming.ScheduledEndTime.Value - scheduledStartOfDay).TotalMinutes;
+                            end = Math.Min(scheduledEndMinutes, closing);
+                            duration = end - start;
+                            
+                            // Ensure minimum duration
+                            if (duration < minDuration)
+                            {
+                                end = Math.Min(start + minDuration, closing);
+                                duration = end - start;
+                            }
+                        }
+                        else
+                        {
+                            // No end time or end time is in future, use default duration
+                            duration = Triangular(rand, minDuration, Math.Min(200, closing - start));
+                            end = start + duration;
+                            
+                            if (closing - end < minDuration)
+                            {
+                                end = closing;
+                                duration = end - start;
+                            }
+                        }
+
+                        channel.programs.Add(new ProgramItem
+                        {
+                            program_id = $"CH{channelId}_P{programIndex}",
+                            start = start,
+                            end = end,
+                            genre = PickProgramGenre(rand, baseGenre),
+                            score = rand.Next(40, 101),
+                            link = includeLink
+                                ? $"https://www.youtube.com/watch?v={upcoming.VideoId}"
+                                : null
+                        });
+
+                        programIndex++;
+                    }
+                }
+            }
+
+            // Then fill remaining time slots with regular streams (random scheduling)
             while (currentTime < closing)
             {
-                foreach (var prog in channelPrograms)
+                foreach (var prog in regularStreams)
                 {
                     if (currentTime >= closing)
                         break;
+
+                    // Skip if this time slot is already occupied by an upcoming video
+                    bool timeSlotOccupied = channel.programs.Any(p => 
+                        (p.start <= currentTime && p.end > currentTime) ||
+                        (p.start < currentTime + minDuration && p.end >= currentTime + minDuration));
+
+                    if (timeSlotOccupied)
+                    {
+                        // Find next available time slot
+                        var nextAvailable = channel.programs
+                            .Where(p => p.end > currentTime)
+                            .OrderBy(p => p.end)
+                            .FirstOrDefault();
+                        currentTime = nextAvailable != null ? nextAvailable.end : closing;
+                        if (currentTime >= closing) break;
+                    }
 
                     int remaining = closing - currentTime;
                     if (remaining < minDuration)
@@ -165,23 +382,15 @@ class Program
                 }
             }
 
+            // Sort programs by start time to ensure proper ordering
+            channel.programs = channel.programs.OrderBy(p => p.start).ToList();
+
             instance.channels.Add(channel);
             channelId++;
         }
 
         instance.channels_count = instance.channels.Count;
-
-        // >>> OUTPUT JSON <<<
-        Directory.CreateDirectory("Output");
-
-        var opts = new JsonSerializerOptions { WriteIndented = true };
-        File.WriteAllText("Output/instance.json",
-            JsonSerializer.Serialize(instance, opts));
-
-        Console.WriteLine("Saved: Output/instance.json");
-
-        // >>> OUTPUT CSV (for debugging / inspection) <<<
-        WriteCSV(instance);
+        return instance;
     }
 
     // -----------------------------------------------
@@ -367,7 +576,7 @@ class Program
     // -----------------------------------------------
     // CSV EXPORT FOR MANUAL INSPECTION
     // -----------------------------------------------
-    static void WriteCSV(Instance instance)
+    static void WriteCSV(Instance instance, string filePath = "Output/livestream_urls.csv")
     {
         var lines = new List<string> { "channel_id,name,program_id,start,end,genre,score,url" };
 
@@ -387,7 +596,7 @@ class Program
         }
 
         Directory.CreateDirectory("Output");
-        File.WriteAllLines("Output/livestream_urls.csv", lines);
-        Console.WriteLine("Saved: Output/livestream_urls.csv");
+        File.WriteAllLines(filePath, lines);
+        Console.WriteLine($"Saved: {filePath}");
     }
 }
