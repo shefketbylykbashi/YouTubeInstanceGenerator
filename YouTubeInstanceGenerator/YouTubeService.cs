@@ -107,20 +107,20 @@ public class YouTubeService
         foreach (var v in videosDoc.RootElement.GetProperty("items").EnumerateArray())
         {
             var snippet = v.GetProperty("snippet");
-            string broadcastState = snippet.GetProperty("liveBroadcastContent").GetString();
-
-            // Filter past mode explicitly
-            if (mode == 'p' && broadcastState == "live")
-                continue;
-            if (mode == 'p' && broadcastState == "upcoming")
-                continue;
+            var details = v.GetProperty("liveStreamingDetails");
+            DateTime? dt(string name) =>
+                details.TryGetProperty(name, out var x) ?
+                DateTime.Parse(x.GetString()) : null;
 
             results.Add(new YouTubeVideo
             {
                 VideoId = v.GetProperty("id").GetString(),
                 Title = snippet.GetProperty("title").GetString(),
                 ChannelTitle = snippet.GetProperty("channelTitle").GetString(),
-                CategoryId = snippet.TryGetProperty("categoryId", out var c) ? c.GetString() : "unknown"
+                CategoryId = snippet.TryGetProperty("categoryId", out var c) ? c.GetString() : "unknown",
+                ScheduledStart = dt("scheduledStartTime"),
+                ActualStart = dt("actualStartTime"),
+                ActualEnd = dt("actualEndTime")
             });
         }
 
@@ -173,4 +173,7 @@ public class YouTubeVideo
     public string Title { get; set; }
     public string ChannelTitle { get; set; }
     public string CategoryId { get; set; }
+    public DateTime? ScheduledStart { get; set; }
+    public DateTime? ActualStart { get; set; }
+    public DateTime? ActualEnd { get; set; }
 }
