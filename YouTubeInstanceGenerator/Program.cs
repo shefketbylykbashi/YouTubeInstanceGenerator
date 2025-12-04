@@ -38,14 +38,9 @@ class Program
         50);  // Increase max results to get more options
         Console.WriteLine("FUTURE: " + future.Count);
 
-        // Combine all streams: current streams + upcoming videos
-        var allStreams = new List<YouTubeVideo>(streams);
-        allStreams.AddRange(future);
-        Console.WriteLine($"Total streams (live + upcoming): {allStreams.Count}");
-
-        if (allStreams.Count == 0)
+        if (streams.Count == 0)
         {
-            Console.WriteLine("No streams fetched.");
+            Console.WriteLine("No live streams fetched.");
             return;
         }
 
@@ -59,9 +54,9 @@ class Program
 
         var rand = new Random();
 
-        // >>> BUILD INSTANCE (using helper function) <<<
+        // >>> BUILD INSTANCE FOR LIVE STREAMS ONLY <<<
         var instance = BuildInstanceFromStreams(
-            allStreams,
+            streams,
             maxChannelsToUse,
             opening,
             closing,
@@ -76,42 +71,43 @@ class Program
         Directory.CreateDirectory("Output");
 
         var opts = new JsonSerializerOptions { WriteIndented = true };
-        File.WriteAllText("Output/instance.json",
+        File.WriteAllText("Output/instance_live.json",
             JsonSerializer.Serialize(instance, opts));
 
-        Console.WriteLine("Saved: Output/instance.json");
+        Console.WriteLine("Saved: Output/instance_live.json");
 
         // >>> OUTPUT CSV (for debugging / inspection) <<<
-        WriteCSV(instance);
+        WriteCSV(instance, "Output/livestream_urls_live.csv");
 
-        // >>> GENERATE SEPARATE INSTANCE FOR UPCOMING LIVESTREAMS ONLY <<<
-        Console.WriteLine("\n=== Generating instance for upcoming livestreams only ===");
-        Console.WriteLine($"Upcoming streams count: {future.Count}");
+        // >>> GENERATE INSTANCE FOR UPCOMING LIVESTREAMS WITH NO END TIME <<<
+        var upcomingNoEndTime = future.Where(v => !v.ScheduledEndTime.HasValue).ToList();
+        Console.WriteLine("\n=== Generating instance for upcoming livestreams with NO scheduled end time ===");
+        Console.WriteLine($"Upcoming streams with no end time count: {upcomingNoEndTime.Count}");
         
         try
         {
-            var upcomingInstance = BuildInstanceFromStreams(future, maxChannelsToUse, opening, closing, minDuration, maxConsecutiveGenre, switchPenalty, terminationPenalty, includeLink, rand);
+            var upcomingNoEndTimeInstance = BuildInstanceFromStreams(upcomingNoEndTime, maxChannelsToUse, opening, closing, minDuration, maxConsecutiveGenre, switchPenalty, terminationPenalty, includeLink, rand);
             
-            if (upcomingInstance != null)
+            if (upcomingNoEndTimeInstance != null)
             {
-                File.WriteAllText("Output/instance_upcoming.json",
-                    JsonSerializer.Serialize(upcomingInstance, opts));
+                File.WriteAllText("Output/instance_upcoming_no_endtime.json",
+                    JsonSerializer.Serialize(upcomingNoEndTimeInstance, opts));
                 
-                Console.WriteLine("Saved: Output/instance_upcoming.json");
-                Console.WriteLine($"Upcoming instance has {upcomingInstance.channels_count} channels with {upcomingInstance.channels.Sum(c => c.programs.Count)} total programs");
+                Console.WriteLine("Saved: Output/instance_upcoming_no_endtime.json");
+                Console.WriteLine($"Upcoming no end time instance has {upcomingNoEndTimeInstance.channels_count} channels with {upcomingNoEndTimeInstance.channels.Sum(c => c.programs.Count)} total programs");
                 
-                // Also create CSV for upcoming instance
-                WriteCSV(upcomingInstance, "Output/livestream_urls_upcoming.csv");
-                Console.WriteLine("Saved: Output/livestream_urls_upcoming.csv");
+                // Also create CSV for upcoming no end time instance
+                WriteCSV(upcomingNoEndTimeInstance, "Output/livestream_urls_upcoming_no_endtime.csv");
+                Console.WriteLine("Saved: Output/livestream_urls_upcoming_no_endtime.csv");
             }
             else
             {
-                Console.WriteLine("ERROR: BuildInstanceFromStreams returned null for upcoming streams.");
+                Console.WriteLine("ERROR: BuildInstanceFromStreams returned null for upcoming streams with no end time.");
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"ERROR generating upcoming instance: {ex.Message}");
+            Console.WriteLine($"ERROR generating upcoming no end time instance: {ex.Message}");
             Console.WriteLine($"Stack trace: {ex.StackTrace}");
         }
 
@@ -132,8 +128,8 @@ class Program
                 Console.WriteLine("Saved: Output/instance_upcoming_with_endtime.json");
                 Console.WriteLine($"Upcoming with end time instance has {upcomingWithEndTimeInstance.channels_count} channels with {upcomingWithEndTimeInstance.channels.Sum(c => c.programs.Count)} total programs");
                 
-                // Also create CSV for upcoming with end time instance
-                WriteCSV(upcomingWithEndTimeInstance, "Output/livestream_urls_upcoming_with_endtime.csv");
+                // Also create CSV for upcoming with end time instance (with scheduled end time column)
+                WriteCSV(upcomingWithEndTimeInstance, "Output/livestream_urls_upcoming_with_endtime.csv", upcomingWithEndTime);
                 Console.WriteLine("Saved: Output/livestream_urls_upcoming_with_endtime.csv");
             }
             else
@@ -576,27 +572,108 @@ class Program
     // -----------------------------------------------
     // CSV EXPORT FOR MANUAL INSPECTION
     // -----------------------------------------------
-    static void WriteCSV(Instance instance, string filePath = "Output/livestream_urls.csv")
+    static void WriteCSV(Instance instance, string filePath = "Output/livestream_urls.csv", List<YouTubeVideo>? sourceVideos = null)
     {
-        var lines = new List<string> { "channel_id,name,program_id,start,end,genre,score,url" };
+        // Check if this is the "with end time" CSV - if so, include scheduled start and end time columns
+        bool includeScheduledTimes = filePath.Contains("with_endtime") && sourceVideos != null;
+        
+        var header = includeScheduledTimes 
+            ? "channel_id,name,program_id,start,end,genre,score,url,scheduled_start_time,scheduled_end_time"
+            : "channel_id,name,program_id,start,end,genre,score,url";
+        
+        var lines = new List<string> { header };
+
+        // Create a dictionary to quickly look up videos by their URL/VideoId
+        Dictionary<string, YouTubeVideo>? videoLookup = null;
+        if (includeScheduledTimes && sourceVideos != null)
+        {
+            videoLookup = sourceVideos.ToDictionary(
+                v => $"https://www.youtube.com/watch?v={v.VideoId}",
+                v => v
+            );
+        }
 
         foreach (var ch in instance.channels)
         {
             foreach (var p in ch.programs)
             {
-                lines.Add(
-                    $"{ch.channel_id}," +
-                    $"\"{ch.channel_name}\"," +
-                    $"{p.program_id}," +
-                    $"{p.start},{p.end}," +
-                    $"{p.genre},{p.score}," +
-                    $"{p.link}"
-                );
+                string scheduledStartTimeStr = "";
+                string scheduledEndTimeStr = "";
+                
+                if (includeScheduledTimes && videoLookup != null && !string.IsNullOrEmpty(p.link))
+                {
+                    if (videoLookup.TryGetValue(p.link, out var video) && video != null)
+                    {
+                        if (video.ScheduledStartTime.HasValue)
+                        {
+                            scheduledStartTimeStr = video.ScheduledStartTime.Value.ToString("yyyy-MM-dd HH:mm:ss UTC");
+                        }
+                        else
+                        {
+                            scheduledStartTimeStr = "N/A";
+                        }
+                        
+                        if (video.ScheduledEndTime.HasValue)
+                        {
+                            scheduledEndTimeStr = video.ScheduledEndTime.Value.ToString("yyyy-MM-dd HH:mm:ss UTC");
+                        }
+                        else
+                        {
+                            scheduledEndTimeStr = "N/A";
+                        }
+                    }
+                    else
+                    {
+                        scheduledStartTimeStr = "N/A";
+                        scheduledEndTimeStr = "N/A";
+                    }
+                }
+                
+                if (includeScheduledTimes)
+                {
+                    lines.Add(
+                        $"{ch.channel_id}," +
+                        $"\"{ch.channel_name}\"," +
+                        $"{p.program_id}," +
+                        $"{p.start},{p.end}," +
+                        $"{p.genre},{p.score}," +
+                        $"{p.link}," +
+                        $"\"{scheduledStartTimeStr}\"," +
+                        $"\"{scheduledEndTimeStr}\""
+                    );
+                }
+                else
+                {
+                    lines.Add(
+                        $"{ch.channel_id}," +
+                        $"\"{ch.channel_name}\"," +
+                        $"{p.program_id}," +
+                        $"{p.start},{p.end}," +
+                        $"{p.genre},{p.score}," +
+                        $"{p.link}"
+                    );
+                }
             }
         }
 
         Directory.CreateDirectory("Output");
-        File.WriteAllLines(filePath, lines);
-        Console.WriteLine($"Saved: {filePath}");
+        
+        try
+        {
+            File.WriteAllLines(filePath, lines);
+            Console.WriteLine($"Saved: {filePath}");
+        }
+        catch (IOException ex) when (ex.Message.Contains("being used by another process") || ex.Message.Contains("cannot access"))
+        {
+            Console.WriteLine($"WARNING: Could not save {filePath}");
+            Console.WriteLine($"The file is currently open in another program (like Excel).");
+            Console.WriteLine($"Please close the file and run the program again, or the file will be saved on the next run.");
+            Console.WriteLine($"Error details: {ex.Message}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"ERROR: Could not save {filePath}");
+            Console.WriteLine($"Error: {ex.Message}");
+        }
     }
 }
