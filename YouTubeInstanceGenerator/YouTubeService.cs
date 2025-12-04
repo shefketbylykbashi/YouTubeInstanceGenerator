@@ -44,88 +44,52 @@ public class YouTubeService
         return results;
     }
 
-    public async Task<List<YouTubeVideo>> GetLiveStreamsAsync(
+    public async Task<List<YouTubeVideo>> GetPublicStreamsAsync(
     char mode,
-    DateTime? startDate,
-    DateTime? endDate,
-    int maxResults)
+    int maxResults,
+    DateTime? start = null,
+    DateTime? end = null)
     {
-        Console.WriteLine($"Mode: {mode}, Start: {startDate}, End: {endDate}");
-
-        var results = new List<YouTubeVideo>();
-        string eventType;
-        string dateParams = "";
-
-        switch (mode)
+        string eventType = mode switch
         {
-            case 'n': // Live NOW → MUST NOT use dates
-                eventType = "live";
-                break;
+            'n' => "live",
+            'f' => "upcoming",
+            'p' => null, // Past streams handled later
+            _ => throw new ArgumentException("Mode must be 'n', 'f', or 'p'")
+        };
 
-            case 'p': // Past streams → MUST use dates
-                if (startDate == null || endDate == null)
-                    throw new ArgumentException("Past mode requires start and end dates!");
-
-                eventType = "completed";
-                dateParams =
-                    $"&publishedAfter={startDate.Value.ToUniversalTime():o}" +
-                    $"&publishedBefore={endDate.Value.ToUniversalTime():o}";
-                break;
-
-            case 'f': // Future → MUST use dates
-                if (startDate == null || endDate == null)
-                    throw new ArgumentException("Future mode requires start and end dates!");
-
-                eventType = "upcoming";
-                dateParams =
-                    $"&publishedAfter={startDate.Value.ToUniversalTime():o}" +
-                    $"&publishedBefore={endDate.Value.ToUniversalTime():o}";
-                break;
-
-            default:
-                throw new ArgumentException("Mode must be 'p', 'n', or 'f'");
+        string dateParams = "";
+        if (mode == 'p' && start.HasValue && end.HasValue)
+        {
+            dateParams =
+                $"&publishedAfter={start.Value.ToUniversalTime():o}" +
+                $"&publishedBefore={end.Value.ToUniversalTime():o}";
         }
 
-        string qParam = mode == 'n' ? "&q=live" : ""; // Only needed for LIVE NOW
+        string eventParam = eventType != null ? $"&eventType={eventType}" : "";
 
-        string searchUrl =
+        string url =
             $"https://www.googleapis.com/youtube/v3/search" +
-            $"?part=snippet&type=video&eventType={eventType}" +
-            $"{qParam}" +
+            $"?part=snippet&type=video&q=live" +
+            $"{eventParam}" +
             $"{dateParams}" +
-            $"&regionCode=US" +
-            $"&maxResults={Math.Min(maxResults, 50)}" +
+            $"&maxResults={maxResults}" +
             $"&key={_apiKey}";
 
-        Console.WriteLine("SEARCH URL:");
-        Console.WriteLine(searchUrl);
+        Console.WriteLine("SEARCH URL => " + url);
 
-        string json = await _http.GetStringAsync(searchUrl);
-        Console.WriteLine("SEARCH RESPONSE:");
-        Console.WriteLine(json);
+        var json = await _http.GetStringAsync(url);
+        using var doc = JsonDocument.Parse(json);
 
-        using var searchDoc = JsonDocument.Parse(json);
-
-        var items = searchDoc.RootElement
-            .GetProperty("items")
+        var ids = doc.RootElement.GetProperty("items")
             .EnumerateArray()
-            .ToList();
-
-        Console.WriteLine($"Found items: {items.Count}");
-
-        if (!items.Any())
-            return results;
-
-        var ids = items
             .Select(i => i.GetProperty("id").GetProperty("videoId").GetString())
             .Where(id => !string.IsNullOrEmpty(id))
             .Distinct()
             .ToList();
 
-        Console.WriteLine($"Unique IDs: {ids.Count}");
-
         if (!ids.Any())
-            return results;
+            return new List<YouTubeVideo>();
 
         string videosUrl =
             $"https://www.googleapis.com/youtube/v3/videos" +
@@ -133,36 +97,33 @@ public class YouTubeService
             $"&id={string.Join(",", ids)}" +
             $"&key={_apiKey}";
 
-        Console.WriteLine("VIDEOS URL:");
-        Console.WriteLine(videosUrl);
+        Console.WriteLine("VIDEOS URL => " + videosUrl);
 
         var videosJson = await _http.GetStringAsync(videosUrl);
-        Console.WriteLine("VIDEOS RESPONSE:");
-        Console.WriteLine(videosJson);
-
         using var videosDoc = JsonDocument.Parse(videosJson);
 
-        foreach (var video in videosDoc.RootElement.GetProperty("items").EnumerateArray())
-        {
-            var snippet = video.GetProperty("snippet");
+        var results = new List<YouTubeVideo>();
 
-            // Titles are never null, fail-safe backup
-            string title = snippet.GetProperty("title").GetString() ?? "Untitled";
-            string channel = snippet.GetProperty("channelTitle").GetString() ?? "Unknown Channel";
+        foreach (var v in videosDoc.RootElement.GetProperty("items").EnumerateArray())
+        {
+            var snippet = v.GetProperty("snippet");
+            string broadcastState = snippet.GetProperty("liveBroadcastContent").GetString();
+
+            // Filter past mode explicitly
+            if (mode == 'p' && broadcastState == "live")
+                continue;
+            if (mode == 'p' && broadcastState == "upcoming")
+                continue;
 
             results.Add(new YouTubeVideo
             {
-                VideoId = video.GetProperty("id").GetString(),
-                Title = title,
-                ChannelTitle = channel,
-                CategoryId = "unknown"
+                VideoId = v.GetProperty("id").GetString(),
+                Title = snippet.GetProperty("title").GetString(),
+                ChannelTitle = snippet.GetProperty("channelTitle").GetString(),
+                CategoryId = snippet.TryGetProperty("categoryId", out var c) ? c.GetString() : "unknown"
             });
-
-            if (results.Count >= maxResults)
-                break;
         }
 
-        Console.WriteLine($"FINAL COUNT: {results.Count}");
         return results;
     }
 

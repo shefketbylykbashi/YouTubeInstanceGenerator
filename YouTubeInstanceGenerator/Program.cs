@@ -17,27 +17,20 @@ class Program
         int maxChannelsToUse = 40;             // cap channels used in instance
         bool includeLink = true;               // control whether link is included in JSON
 
+        
         var yt = new YouTubeService(apiKey);
         var streams = await yt.GetLiveStreamsAsync(maxStreams);
-        var live = await yt.GetLiveStreamsAsync('n', null, null, 20);
-        Console.WriteLine("LIVE NOW: " + live.Count);
+        var live = await yt.GetPublicStreamsAsync('n', 20);
+        Console.WriteLine($"LIVE NOW: {live.Count}");
+
+        var upcoming = await yt.GetPublicStreamsAsync('f', 20);
+        Console.WriteLine($"UPCOMING: {upcoming.Count}");
+
+        var past = await yt.GetPublicStreamsAsync('p', 20,
+            DateTime.UtcNow.AddDays(-1), DateTime.UtcNow);
+        Console.WriteLine($"PAST: {past.Count}");
 
 
-        var past = await yt.GetLiveStreamsAsync(
-        'p',
-        DateTime.UtcNow.AddHours(-4),
-        DateTime.UtcNow,
-        20);
-        Console.WriteLine("PAST: " + past.Count);
-
-        var future = await yt.GetLiveStreamsAsync(
-        'f',
-        DateTime.UtcNow,
-        DateTime.UtcNow.AddDays(2),
-        20);
-        Console.WriteLine("FUTURE: " + future.Count);
-
-        
         //var streams = past;
         if (streams.Count == 0)
         {
