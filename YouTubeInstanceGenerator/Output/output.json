@@ -1,0 +1,53 @@
+{
+  "scheduled_programs": [
+    {
+      "program_id": "Up_N8RyIVfx11Q",
+      "channel_id": 3,
+      "start": 0,
+      "end": 168
+    },
+    {
+      "program_id": "Up_Plq9L9hmlBg",
+      "channel_id": 39,
+      "start": 240,
+      "end": 366
+    },
+    {
+      "program_id": "Up_Y85CltecubE",
+      "channel_id": 10,
+      "start": 390,
+      "end": 522
+    },
+    {
+      "program_id": "Up_AhDbuw5XKRs",
+      "channel_id": 16,
+      "start": 540,
+      "end": 624
+    },
+    {
+      "program_id": "Up_NrF_Fbr_CNQ",
+      "channel_id": 2,
+      "start": 660,
+      "end": 786
+    },
+    {
+      "program_id": "Up_EgTSTuBquWk",
+      "channel_id": 18,
+      "start": 870,
+      "end": 1025
+    },
+    {
+      "program_id": "Up_O9x27VbfcxE",
+      "channel_id": 1,
+      "start": 1080,
+      "end": 1200
+    },
+    {
+      "program_id": "Up_o5tXWKdkVck",
+      "channel_id": 40,
+      "start": 1230,
+      "end": 1391
+    }
+  ],
+  "total_score": 745
+}
