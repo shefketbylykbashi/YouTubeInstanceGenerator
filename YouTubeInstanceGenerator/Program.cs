@@ -11,188 +11,41 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        // >>> CONFIG <<< 
+        // >>> CONFIG <<<
         string apiKey = "AIzaSyDtv2jbYTPrFD_gg55kUm0sHVannpb8yEc";
-        int maxStreams = 1000;
         int maxChannelsToUse = 40;
         bool includeLink = true;
 
+        Directory.CreateDirectory("Output");
+
         var yt = new YouTubeService(apiKey);
 
-        var live = await yt.GetPublicStreamsAsync('n', 40);
+        // FETCH DATA
+        var live = await yt.GetPublicStreamsAsync('n', 100);
         Console.WriteLine($"LIVE NOW: {live.Count}");
 
-        var upcoming = await yt.GetPublicStreamsAsync('f', 20);
+        var upcoming = await yt.GetPublicStreamsAsync('f', 40);
         Console.WriteLine($"UPCOMING: {upcoming.Count}");
 
-        //var past = await yt.GetPublicStreamsAsync('p', 20,
-        //    DateTime.UtcNow.AddDays(-1), DateTime.UtcNow);
-        //Console.WriteLine($"PAST: {past.Count}");
+        // Uncomment when past streams are working
+        // var past = await yt.GetPublicStreamsAsync('p', 40,
+        //     DateTime.UtcNow.AddDays(-1), DateTime.UtcNow);
+        // Console.WriteLine($"PAST: {past.Count}");
 
-        if (live.Count == 0) live = new List<YouTubeVideo>();
+        // 1️⃣ LIVE INSTANCE
+        var liveInstance = BuildLiveInstance(live, maxChannelsToUse, includeLink);
+        SaveInstance("instance_live.json", liveInstance);
+        WriteCSV(liveInstance); // CSV only for live (same as before)
 
-        // Shuffle for live channel distribution
-        var rand = new Random();
-        var shuffled = live.OrderBy(_ => rand.Next()).ToList();
+        // 2️⃣ UPCOMING INSTANCE
+        var upInstance = BuildSingleProgramInstance(upcoming, includeLink, "Upcoming");
+        SaveInstance("instance_upcoming.json", upInstance);
 
-        int opening = 7 * 60;
-        int closing = 23 * 60;
-        int minDuration = 30;
+        // 3️⃣ PAST INSTANCE (requires ActualStart & ActualEnd)
+        // var pastInstance = BuildSingleProgramInstance(past, includeLink, "Past", true);
+        // SaveInstance("instance_past.json", pastInstance);
 
-        var instance = new Instance
-        {
-            opening_time = opening,
-            closing_time = closing,
-            min_duration = minDuration,
-            max_consecutive_genre = 2,
-            switch_penalty = 3,
-            termination_penalty = 15,
-            priority_blocks = GeneratePriorityBlocks(opening, closing, maxChannelsToUse, rand),
-            time_preferences = GenerateStructuredPreferences(opening, closing),
-            channels = new List<Channel>()
-        };
-
-        // -----------------------------
-        // LIVE CHANNELS (original style)
-        // -----------------------------
-        int channelId = 0;
-
-        for (int c = 0; c < maxChannelsToUse; c++)
-        {
-            if (!shuffled.Any()) break;
-
-            var channel = new Channel
-            {
-                channel_id = channelId,
-                channel_name = $"Live Channel {channelId + 1}",
-                programs = new List<ProgramItem>()
-            };
-
-            string baseGenre = YouTubeService.MapCategoryToGenre(
-                shuffled[0].CategoryId, shuffled[0].Title);
-
-            int currentTime = opening;
-            int i = 0;
-
-            while (currentTime < closing)
-            {
-                var s = shuffled[rand.Next(shuffled.Count)];
-
-                int remaining = closing - currentTime;
-                if (remaining < minDuration) break;
-
-                int duration = Triangular(rand, minDuration, Math.Min(200, remaining));
-                int start = currentTime;
-                int end = start + duration;
-
-                if (closing - end < minDuration)
-                {
-                    end = closing;
-                    duration = end - start;
-                }
-
-                channel.programs.Add(new ProgramItem
-                {
-                    program_id = $"CH{channelId}_L{i}",
-                    start = start,
-                    end = end,
-                    genre = PickProgramGenre(rand, baseGenre),
-                    score = rand.Next(40, 101),
-                    link = includeLink ? $"https://www.youtube.com/watch?v={s.VideoId}" : null
-                });
-
-                currentTime = end;
-                i++;
-            }
-
-            instance.channels.Add(channel);
-            channelId++;
-        }
-
-        // ---------------------------------
-        // UPCOMING → 1 STREAM = 1 CHANNEL
-        // ---------------------------------
-        foreach (var up in upcoming)
-        {
-            var start = up.ScheduledStart ?? DateTime.UtcNow.AddMinutes(10);
-            var end = start.AddHours(2); // fallback when end time unknown
-
-            instance.channels.Add(new Channel
-            {
-                channel_id = instance.channels.Count,
-                channel_name = $"{up.ChannelTitle} (Upcoming)",
-                programs = new List<ProgramItem>
-                {
-                    new ProgramItem
-                    {
-                        program_id = $"UP_{up.VideoId}",
-                        start = ToMinutes(start),
-                        end = ToMinutes(end),
-                        genre = YouTubeService.MapCategoryToGenre(up.CategoryId, up.Title),
-                        score = 75,
-                        link = includeLink ? $"https://www.youtube.com/watch?v={up.VideoId}" : null
-                    }
-                }
-            });
-        }
-
-        // ---------------------------------
-        // PAST → 1 STREAM = 1 CHANNEL
-        // ---------------------------------
-        //foreach (var pa in past)
-        //{
-        //    if (pa.ActualStart == null || pa.ActualEnd == null)
-        //        continue;
-
-        //    instance.channels.Add(new Channel
-        //    {
-        //        channel_id = instance.channels.Count,
-        //        channel_name = $"{pa.ChannelTitle} (Past)",
-        //        programs = new List<ProgramItem>
-        //        {
-        //            new ProgramItem
-        //            {
-        //                program_id = $"PA_{pa.VideoId}",
-        //                start = ToMinutes(pa.ActualStart.Value),
-        //                end = ToMinutes(pa.ActualEnd.Value),
-        //                genre = YouTubeService.MapCategoryToGenre(pa.CategoryId, pa.Title),
-        //                score = 50,
-        //                link = includeLink ? $"https://www.youtube.com/watch?v={pa.VideoId}" : null
-        //            }
-        //        }
-        //    });
-        //}
-
-        instance.channels_count = instance.channels.Count;
-
-        Directory.CreateDirectory("Output");
-        File.WriteAllText("Output/instance.json",
-            JsonSerializer.Serialize(instance, new JsonSerializerOptions { WriteIndented = true }));
-
-        Console.WriteLine("Saved: Output/instance.json");
-
-        WriteCSV(instance);
-        static int ToMinutes(DateTime dt) =>
-        dt.ToLocalTime().Hour * 60 + dt.ToLocalTime().Minute;
-
-        static int Triangular(Random r, int min, int max)
-        {
-            if (min >= max) return min;
-            double u = r.NextDouble();
-            return (int)(min + (max - min) * Math.Sqrt(u));
-        }
-
-        static string PickProgramGenre(Random rand, string baseGenre)
-        {
-            string[] allGenres =
-            { "news", "sports", "music", "gaming", "talk",
-          "movie", "documentary", "kids", "tech",
-          "variety", "drama" };
-
-            if (!string.IsNullOrEmpty(baseGenre) && rand.NextDouble() < 0.7)
-                return baseGenre;
-            return allGenres[rand.Next(allGenres.Length)];
-        }
+        Console.WriteLine("\n✔ DONE — All category files created!");
     }
     static int ToMinutes(DateTime dt) => dt.ToLocalTime().Hour * 60 + dt.ToLocalTime().Minute;
     static Instance BuildLiveInstance(List<YouTubeVideo> streams, int maxChannels, bool includeLink)
