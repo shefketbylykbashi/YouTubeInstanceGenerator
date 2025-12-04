@@ -13,6 +13,7 @@ namespace YouTubeInstanceGenerator.Models
         public int end { get; set; }
         public string genre { get; set; }
         public int score { get; set; }
+        [System.Text.Json.Serialization.JsonIgnore(Condition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull)]
         public string? link { get; set; }
     }
 }
