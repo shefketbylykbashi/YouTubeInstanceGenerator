@@ -20,6 +20,8 @@ class Program
         string mode = "n"; // n = now, f = future, p = past
         int startOffset = 0;
         int endOffset = 1;
+        DateTime? startDate = null;
+        DateTime? endDate = null;
 
         // ---------------- Command Line Parser ----------------
         foreach (var arg in args)
@@ -45,10 +47,15 @@ class Program
                     mode = value.ToLower(); // n / f / p
                     break;
                 case "--start":
-                    int.TryParse(value, out startOffset);
+                    if (DateTime.TryParseExact(value, "yyyyMMddHHmm",
+                        CultureInfo.InvariantCulture, DateTimeStyles.None, out var sd))
+                        startDate = sd;
                     break;
+
                 case "--end":
-                    int.TryParse(value, out endOffset);
+                    if (DateTime.TryParseExact(value, "yyyyMMddHHmm",
+                        CultureInfo.InvariantCulture, DateTimeStyles.None, out var ed))
+                        endDate = ed;
                     break;
             }
         }
@@ -58,7 +65,12 @@ class Program
             Console.WriteLine("❌ Missing required parameter: --apiKey");
             return;
         }
-
+        if ((mode == "f" || mode == "p") && (!startDate.HasValue || !endDate.HasValue))
+        {
+            Console.WriteLine("❌ Missing required date params! Example:");
+            Console.WriteLine("   --start=202512062300 --end=202512092300");
+            return;
+        }
         Directory.CreateDirectory("Output");
         var yt = new YouTubeService(apiKey);
 
@@ -76,27 +88,48 @@ class Program
             Console.WriteLine($"LIVE COUNT: {live.Count}");
 
             instance = BuildLiveInstance(live, maxChannelsToUse, includeLink);
-            filename = "instance_live.json";
+            string label = mode switch
+            {
+                "n" => "live",
+                "f" => "upcoming",
+                "p" => "past",
+                _ => "unknown"
+            };
+
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            filename = $"instance_{label}_{timestamp}.json";
             WriteCSV(instance);
         }
         else if (mode == "f")   // UPCOMING
         {
             var upcoming = await yt.GetPublicStreamsAsync(
-                'f', maxChannelsToUse,
-                DateTime.UtcNow.AddDays(startOffset),
-                DateTime.UtcNow.AddDays(endOffset));
+                'f',
+                maxChannelsToUse,
+                startDate.Value.ToUniversalTime(),
+                endDate.Value.ToUniversalTime());
 
             Console.WriteLine($"UPCOMING COUNT: {upcoming.Count}");
 
             instance = BuildSingleProgramInstance(upcoming, includeLink, "Upcoming");
-            filename = "instance_upcoming.json";
+            string label = mode switch
+            {
+                "n" => "live",
+                "f" => "upcoming",
+                "p" => "past",
+                _ => "unknown"
+            };
+
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+            filename = $"instance_{label}_{timestamp}.json";
+            WriteCSV(instance);
         }
         else if (mode == "p") // PAST
         {
             var past = await yt.GetPublicStreamsAsync(
-                'p', 100,
-                DateTime.UtcNow.AddDays(startOffset),
-                DateTime.UtcNow.AddDays(endOffset));
+            'p',
+            maxChannelsToUse,
+            startDate.Value.ToUniversalTime(),
+            endDate.Value.ToUniversalTime());
 
             Console.WriteLine($"PAST COUNT: {past.Count}");
 
@@ -440,7 +473,7 @@ class Program
     // -----------------------------------------------
     static void WriteCSV(Instance instance)
     {
-        var lines = new List<string> { "channel_id,name,program_id,start,end,genre,score,url" };
+        var lines = new List<string> { "channel_id,name,program_id,url" };
 
         foreach (var ch in instance.channels)
             foreach (var p in ch.programs)
@@ -448,12 +481,10 @@ class Program
                     $"{ch.channel_id}," +
                     $"\"{ch.channel_name}\"," +
                     $"{p.program_id}," +
-                    $"{p.start},{p.end}," +
-                    $"{p.genre},{p.score}," +
                     $"{p.link}");
 
         Directory.CreateDirectory("Output");
-        File.WriteAllLines("Output/livestream_urls.csv", lines);
-        Console.WriteLine("Saved: Output/livestream_urls.csv");
+        string timestamp = DateTime.Now.ToString("yyyyMMdd_HHmmss");
+        File.WriteAllLines($"Output/urls_{timestamp}.csv", lines);
     }
 }

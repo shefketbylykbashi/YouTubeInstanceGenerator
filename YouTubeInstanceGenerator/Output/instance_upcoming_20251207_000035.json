@@ -1,0 +1,65 @@
+{
+  "opening_time": 0,
+  "closing_time": 0,
+  "min_duration": 30,
+  "max_consecutive_genre": 2,
+  "channels_count": 0,
+  "switch_penalty": 3,
+  "termination_penalty": 15,
+  "priority_blocks": [
+    {
+      "start": 421,
+      "end": 0,
+      "allowed_channels": []
+    },
+    {
+      "start": 911,
+      "end": 0,
+      "allowed_channels": []
+    },
+    {
+      "start": 1141,
+      "end": 0,
+      "allowed_channels": []
+    }
+  ],
+  "time_preferences": [
+    {
+      "start": 0,
+      "end": 0,
+      "preferred_genre": "talk",
+      "bonus": 68
+    },
+    {
+      "start": 0,
+      "end": 0,
+      "preferred_genre": "talk",
+      "bonus": 29
+    },
+    {
+      "start": 0,
+      "end": 0,
+      "preferred_genre": "documentary",
+      "bonus": 45
+    },
+    {
+      "start": 0,
+      "end": 0,
+      "preferred_genre": "kids",
+      "bonus": 54
+    },
+    {
+      "start": 0,
+      "end": 0,
+      "preferred_genre": "sports",
+      "bonus": 95
+    },
+    {
+      "start": 0,
+      "end": 0,
+      "preferred_genre": "gaming",
+      "bonus": 33
+    }
+  ],
+  "channels": []
+}

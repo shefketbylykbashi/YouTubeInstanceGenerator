@@ -1,0 +1,838 @@
+{
+  "opening_time": 0,
+  "closing_time": 1440,
+  "min_duration": 30,
+  "max_consecutive_genre": 2,
+  "channels_count": 50,
+  "switch_penalty": 3,
+  "termination_penalty": 15,
+  "priority_blocks": [
+    {
+      "start": 426,
+      "end": 521,
+      "allowed_channels": [
+        36,
+        40,
+        13,
+        11,
+        45,
+        47,
+        38,
+        24,
+        25,
+        44,
+        0,
+        5,
+        9,
+        34,
+        15,
+        41,
+        7
+      ]
+    },
+    {
+      "start": 915,
+      "end": 1022,
+      "allowed_channels": [
+        28,
+        32,
+        30,
+        13,
+        24,
+        4,
+        43,
+        5,
+        45,
+        19,
+        10,
+        39,
+        12,
+        25,
+        9,
+        47,
+        22,
+        23,
+        31,
+        27,
+        33,
+        35
+      ]
+    },
+    {
+      "start": 1146,
+      "end": 1336,
+      "allowed_channels": [
+        39,
+        31,
+        32,
+        10,
+        48,
+        42,
+        24,
+        12,
+        21,
+        9,
+        14,
+        13,
+        34,
+        16,
+        26,
+        3,
+        17,
+        18,
+        45,
+        15,
+        7,
+        19,
+        11,
+        35,
+        4,
+        2,
+        23,
+        47,
+        6,
+        27
+      ]
+    }
+  ],
+  "time_preferences": [
+    {
+      "start": 0,
+      "end": 526,
+      "preferred_genre": "news",
+      "bonus": 40
+    },
+    {
+      "start": 526,
+      "end": 712,
+      "preferred_genre": "documentary",
+      "bonus": 37
+    },
+    {
+      "start": 712,
+      "end": 881,
+      "preferred_genre": "documentary",
+      "bonus": 48
+    },
+    {
+      "start": 881,
+      "end": 1069,
+      "preferred_genre": "gaming",
+      "bonus": 49
+    },
+    {
+      "start": 1069,
+      "end": 1240,
+      "preferred_genre": "drama",
+      "bonus": 84
+    },
+    {
+      "start": 1240,
+      "end": 1440,
+      "preferred_genre": "gaming",
+      "bonus": 58
+    }
+  ],
+  "channels": [
+    {
+      "channel_id": 0,
+      "channel_name": "LiveKabaddi (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_hmq8MDUM14Q",
+          "start": 1230,
+          "end": 1330,
+          "genre": "sports",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=hmq8MDUM14Q"
+        }
+      ]
+    },
+    {
+      "channel_id": 1,
+      "channel_name": "VERTEX (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_rgRX2eQPaSY",
+          "start": 437,
+          "end": 581,
+          "genre": "news",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=rgRX2eQPaSY"
+        }
+      ]
+    },
+    {
+      "channel_id": 2,
+      "channel_name": "WildEarth (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_TIkXRBoUAQY",
+          "start": 600,
+          "end": 759,
+          "genre": "variety",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=TIkXRBoUAQY"
+        }
+      ]
+    },
+    {
+      "channel_id": 3,
+      "channel_name": "Dew Suwa Sewa (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_ZlAkJLI_Hsk",
+          "start": 360,
+          "end": 428,
+          "genre": "variety",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=ZlAkJLI_Hsk"
+        }
+      ]
+    },
+    {
+      "channel_id": 4,
+      "channel_name": "Jothi Tv Live (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_mBZBFw28QSc",
+          "start": 30,
+          "end": 91,
+          "genre": "talk",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=mBZBFw28QSc"
+        }
+      ]
+    },
+    {
+      "channel_id": 5,
+      "channel_name": "Netherlands Bach Society (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_dxvnIIvnogM",
+          "start": 1185,
+          "end": 1294,
+          "genre": "music",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=dxvnIIvnogM"
+        }
+      ]
+    },
+    {
+      "channel_id": 6,
+      "channel_name": "Bengaluru Duroos (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_o0HOeUU3oLQ",
+          "start": 330,
+          "end": 464,
+          "genre": "documentary",
+          "score": 70,
+          "link": "https://www.youtube.com/watch?v=o0HOeUU3oLQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 7,
+      "channel_name": "Liverpool FC (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_6sGkNoG8TBo",
+          "start": 1185,
+          "end": 1304,
+          "genre": "sports",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=6sGkNoG8TBo"
+        }
+      ]
+    },
+    {
+      "channel_id": 8,
+      "channel_name": "News18 Kannada (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_VxFaCNQ-BYA",
+          "start": 60,
+          "end": 219,
+          "genre": "news",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=VxFaCNQ-BYA"
+        }
+      ]
+    },
+    {
+      "channel_id": 9,
+      "channel_name": "Liverpool FC (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_7R_WFjpin3k",
+          "start": 765,
+          "end": 941,
+          "genre": "sports",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=7R_WFjpin3k"
+        }
+      ]
+    },
+    {
+      "channel_id": 10,
+      "channel_name": "DoChard Clicky ASMR (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_0fMDZ_07F0c",
+          "start": 426,
+          "end": 570,
+          "genre": "documentary",
+          "score": 50,
+          "link": "https://www.youtube.com/watch?v=0fMDZ_07F0c"
+        }
+      ]
+    },
+    {
+      "channel_id": 11,
+      "channel_name": "Seyegan TV (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_NW2ietDFiE8",
+          "start": 810,
+          "end": 924,
+          "genre": "drama",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=NW2ietDFiE8"
+        }
+      ]
+    },
+    {
+      "channel_id": 12,
+      "channel_name": "COURT TV (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_6xeSqTnPicA",
+          "start": 900,
+          "end": 1030,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=6xeSqTnPicA"
+        }
+      ]
+    },
+    {
+      "channel_id": 13,
+      "channel_name": "Liverpool FC (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_iwmP5iiDjMw",
+          "start": 1185,
+          "end": 1255,
+          "genre": "sports",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=iwmP5iiDjMw"
+        }
+      ]
+    },
+    {
+      "channel_id": 14,
+      "channel_name": "New Light Neet (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_YKn26vcUtYk",
+          "start": 810,
+          "end": 952,
+          "genre": "documentary",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=YKn26vcUtYk"
+        }
+      ]
+    },
+    {
+      "channel_id": 15,
+      "channel_name": "Shekinah News (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_EnJoHP9Hp7s",
+          "start": 300,
+          "end": 404,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=EnJoHP9Hp7s"
+        }
+      ]
+    },
+    {
+      "channel_id": 16,
+      "channel_name": "\uC790\uC720\uB300\uD559 (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_qorNrCCss2I",
+          "start": 367,
+          "end": 463,
+          "genre": "drama",
+          "score": 53,
+          "link": "https://www.youtube.com/watch?v=qorNrCCss2I"
+        }
+      ]
+    },
+    {
+      "channel_id": 17,
+      "channel_name": "Doordarshan Uttar Pradesh (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_k4xSqVGrcvA",
+          "start": 120,
+          "end": 270,
+          "genre": "drama",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=k4xSqVGrcvA"
+        }
+      ]
+    },
+    {
+      "channel_id": 18,
+      "channel_name": "FOX 5 New York (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_FCbBQ_L1Hpc",
+          "start": 1200,
+          "end": 1311,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=FCbBQ_L1Hpc"
+        }
+      ]
+    },
+    {
+      "channel_id": 19,
+      "channel_name": "\u9244\u9053\u30D5\u30A1\u30F3\u306E\u5F85\u5408\u5BA4 (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_ghbk7Zn96GI",
+          "start": 395,
+          "end": 553,
+          "genre": "drama",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=ghbk7Zn96GI"
+        }
+      ]
+    },
+    {
+      "channel_id": 20,
+      "channel_name": "96 FM ARAPIRACA (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_oPNWBCIJ07A",
+          "start": 540,
+          "end": 639,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=oPNWBCIJ07A"
+        }
+      ]
+    },
+    {
+      "channel_id": 21,
+      "channel_name": "canalturf (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up__8e6aZCIo14",
+          "start": 435,
+          "end": 582,
+          "genre": "sports",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=_8e6aZCIo14"
+        }
+      ]
+    },
+    {
+      "channel_id": 22,
+      "channel_name": "GYANLIVE (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_Kypr16RCyJw",
+          "start": 810,
+          "end": 930,
+          "genre": "documentary",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=Kypr16RCyJw"
+        }
+      ]
+    },
+    {
+      "channel_id": 23,
+      "channel_name": "Newsmax (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_2SXXcsDJIn0",
+          "start": 1085,
+          "end": 1222,
+          "genre": "drama",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=2SXXcsDJIn0"
+        }
+      ]
+    },
+    {
+      "channel_id": 24,
+      "channel_name": "SIRSI AZADARI 110 (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_mHj6AR8chVk",
+          "start": 930,
+          "end": 1030,
+          "genre": "talk",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=mHj6AR8chVk"
+        }
+      ]
+    },
+    {
+      "channel_id": 25,
+      "channel_name": "EuroLeague Women (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_xIlLT4AEsGo",
+          "start": 1080,
+          "end": 1192,
+          "genre": "sports",
+          "score": 57,
+          "link": "https://www.youtube.com/watch?v=xIlLT4AEsGo"
+        }
+      ]
+    },
+    {
+      "channel_id": 26,
+      "channel_name": "NN Play (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_0lkQl98HGlU",
+          "start": 1380,
+          "end": 39,
+          "genre": "sports",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=0lkQl98HGlU"
+        }
+      ]
+    },
+    {
+      "channel_id": 27,
+      "channel_name": "HTB Church (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_VNR8C4toFT0",
+          "start": 733,
+          "end": 778,
+          "genre": "drama",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=VNR8C4toFT0"
+        }
+      ]
+    },
+    {
+      "channel_id": 28,
+      "channel_name": "EWTN News  (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_VZJazvrMY3Y",
+          "start": 960,
+          "end": 1127,
+          "genre": "news",
+          "score": 57,
+          "link": "https://www.youtube.com/watch?v=VZJazvrMY3Y"
+        }
+      ]
+    },
+    {
+      "channel_id": 29,
+      "channel_name": "FIBA Basketball (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_vIBeWH3zmMg",
+          "start": 1080,
+          "end": 1210,
+          "genre": "sports",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=vIBeWH3zmMg"
+        }
+      ]
+    },
+    {
+      "channel_id": 30,
+      "channel_name": "NFL on NBC (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_MGLYr4blOoU",
+          "start": 960,
+          "end": 1013,
+          "genre": "drama",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=MGLYr4blOoU"
+        }
+      ]
+    },
+    {
+      "channel_id": 31,
+      "channel_name": "Topstep (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_cTKpkb8a13I",
+          "start": 630,
+          "end": 777,
+          "genre": "documentary",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=cTKpkb8a13I"
+        }
+      ]
+    },
+    {
+      "channel_id": 32,
+      "channel_name": "CaliKim29 Garden \u0026 Home DIY (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_IIczMz6kb-A",
+          "start": 1260,
+          "end": 1412,
+          "genre": "variety",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=IIczMz6kb-A"
+        }
+      ]
+    },
+    {
+      "channel_id": 33,
+      "channel_name": "officialgtvid (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_zD9gPov-YIQ",
+          "start": 300,
+          "end": 386,
+          "genre": "drama",
+          "score": 75,
+          "link": "https://www.youtube.com/watch?v=zD9gPov-YIQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 34,
+      "channel_name": "Capcom Fighters (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_ns_PETGSKjo",
+          "start": 60,
+          "end": 212,
+          "genre": "kids",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=ns_PETGSKjo"
+        }
+      ]
+    },
+    {
+      "channel_id": 35,
+      "channel_name": "Goblin (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_ds2q0wh-YE0",
+          "start": 960,
+          "end": 1031,
+          "genre": "kids",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=ds2q0wh-YE0"
+        }
+      ]
+    },
+    {
+      "channel_id": 36,
+      "channel_name": "Barclays Women\u0027s Super League (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_LzENVjTV46A",
+          "start": 780,
+          "end": 900,
+          "genre": "sports",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=LzENVjTV46A"
+        }
+      ]
+    },
+    {
+      "channel_id": 37,
+      "channel_name": "KBS\uCDA9\uBD81 (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_z9w2gupaTh8",
+          "start": 580,
+          "end": 714,
+          "genre": "news",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=z9w2gupaTh8"
+        }
+      ]
+    },
+    {
+      "channel_id": 38,
+      "channel_name": "News 24 (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_jWYCuzrT2OU",
+          "start": 435,
+          "end": 526,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=jWYCuzrT2OU"
+        }
+      ]
+    },
+    {
+      "channel_id": 39,
+      "channel_name": "2819 Church (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_D2y-qrpF4KQ",
+          "start": 980,
+          "end": 1052,
+          "genre": "drama",
+          "score": 76,
+          "link": "https://www.youtube.com/watch?v=D2y-qrpF4KQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 40,
+      "channel_name": "DD Bangla News (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_QcKSveLb8YI",
+          "start": 240,
+          "end": 285,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=QcKSveLb8YI"
+        }
+      ]
+    },
+    {
+      "channel_id": 41,
+      "channel_name": "\uAD11\uC8FCMBC\uB274\uC2A4 (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_Uu4XZgdRRDA",
+          "start": 720,
+          "end": 806,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=Uu4XZgdRRDA"
+        }
+      ]
+    },
+    {
+      "channel_id": 42,
+      "channel_name": "PLAVE \uD50C\uB808\uC774\uBE0C (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_l72PKh5hkf0",
+          "start": 720,
+          "end": 851,
+          "genre": "drama",
+          "score": 76,
+          "link": "https://www.youtube.com/watch?v=l72PKh5hkf0"
+        }
+      ]
+    },
+    {
+      "channel_id": 43,
+      "channel_name": "\u30DC\u30FC\u30C8\u30EC\u30FC\u30B9\u516C\u5F0F\u6620\u50CF\u914D\u4FE1 JLC\u30EC\u30B8\u30E3\u30FC\u30C1\u30E3\u30F3\u30CD\u30EB (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_B-Rl7fcRveE",
+          "start": 710,
+          "end": 822,
+          "genre": "drama",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=B-Rl7fcRveE"
+        }
+      ]
+    },
+    {
+      "channel_id": 44,
+      "channel_name": "Little Girl Attorney (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_JcZpEorll5U",
+          "start": 960,
+          "end": 1138,
+          "genre": "talk",
+          "score": 83,
+          "link": "https://www.youtube.com/watch?v=JcZpEorll5U"
+        }
+      ]
+    },
+    {
+      "channel_id": 45,
+      "channel_name": "European Volleyball (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_dPc7jAmjRGc",
+          "start": 1080,
+          "end": 1203,
+          "genre": "sports",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=dPc7jAmjRGc"
+        }
+      ]
+    },
+    {
+      "channel_id": 46,
+      "channel_name": "Praise AG Church (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_hsBbH4MTLHU",
+          "start": 60,
+          "end": 138,
+          "genre": "drama",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=hsBbH4MTLHU"
+        }
+      ]
+    },
+    {
+      "channel_id": 47,
+      "channel_name": "ITTFWorld (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_ZT7SyMNEm24",
+          "start": 175,
+          "end": 353,
+          "genre": "sports",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=ZT7SyMNEm24"
+        }
+      ]
+    },
+    {
+      "channel_id": 48,
+      "channel_name": "ITTFWorld (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_DjPOoolRuZg",
+          "start": 595,
+          "end": 670,
+          "genre": "sports",
+          "score": 76,
+          "link": "https://www.youtube.com/watch?v=DjPOoolRuZg"
+        }
+      ]
+    },
+    {
+      "channel_id": 49,
+      "channel_name": "Prasar Bharati Sports (Upcoming)",
+      "programs": [
+        {
+          "program_id": "Up_QlZsY-5aafM",
+          "start": 375,
+          "end": 455,
+          "genre": "sports",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=QlZsY-5aafM"
+        }
+      ]
+    }
+  ]
+}

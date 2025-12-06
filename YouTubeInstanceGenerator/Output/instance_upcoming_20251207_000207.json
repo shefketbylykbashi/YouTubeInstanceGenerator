@@ -1,0 +1,65 @@
+{
+  "opening_time": 0,
+  "closing_time": 0,
+  "min_duration": 30,
+  "max_consecutive_genre": 2,
+  "channels_count": 0,
+  "switch_penalty": 3,
+  "termination_penalty": 15,
+  "priority_blocks": [
+    {
+      "start": 436,
+      "end": 554,
+      "allowed_channels": []
+    },
+    {
+      "start": 918,
+      "end": 1033,
+      "allowed_channels": []
+    },
+    {
+      "start": 1132,
+      "end": 1307,
+      "allowed_channels": []
+    }
+  ],
+  "time_preferences": [
+    {
+      "start": 0,
+      "end": 521,
+      "preferred_genre": "news",
+      "bonus": 76
+    },
+    {
+      "start": 521,
+      "end": 732,
+      "preferred_genre": "kids",
+      "bonus": 33
+    },
+    {
+      "start": 732,
+      "end": 906,
+      "preferred_genre": "documentary",
+      "bonus": 40
+    },
+    {
+      "start": 906,
+      "end": 1078,
+      "preferred_genre": "kids",
+      "bonus": 44
+    },
+    {
+      "start": 1078,
+      "end": 1256,
+      "preferred_genre": "movie",
+      "bonus": 102
+    },
+    {
+      "start": 1256,
+      "end": 1440,
+      "preferred_genre": "talk",
+      "bonus": 47
+    }
+  ],
+  "channels": []
+}
