@@ -24,7 +24,9 @@ Before running this tool, ensure that:
 - .NET SDK **8.0 or newer** is installed  
   👉 https://dotnet.microsoft.com/download
 - You have a valid **YouTube Data API v3 key**  
-  👉 https://console.cloud.google.com/apis/credentials
+  👉 https://console.cloud.google.com/apis/credentials  
+  📄 Refer to the included guide for generating your key:  
+  **[GenerateAPIkey.pdf](./GenerateAPIkey.pdf)**
 
 ### ✔️ Verify .NET Installation
 ```bash
