@@ -1,0 +1,4809 @@
+{
+  "opening_time": 0,
+  "closing_time": 720,
+  "min_duration": 30,
+  "max_consecutive_genre": 2,
+  "channels_count": 100,
+  "switch_penalty": 3,
+  "termination_penalty": 15,
+  "priority_blocks": [
+    {
+      "start": 429,
+      "end": 534,
+      "allowed_channels": [
+        46,
+        84,
+        60,
+        96,
+        45,
+        20,
+        35,
+        87,
+        27,
+        34,
+        9,
+        33,
+        70,
+        67,
+        78,
+        92,
+        88,
+        3,
+        16,
+        68,
+        0,
+        90,
+        44,
+        66,
+        17,
+        75,
+        54,
+        81,
+        86,
+        63,
+        73,
+        41,
+        55,
+        19,
+        4
+      ]
+    },
+    {
+      "start": 905,
+      "end": 720,
+      "allowed_channels": [
+        65,
+        75,
+        11,
+        25,
+        14,
+        88,
+        54,
+        98,
+        83,
+        7,
+        5,
+        89,
+        6,
+        68,
+        58,
+        99,
+        30,
+        92,
+        72,
+        15,
+        61,
+        3,
+        0,
+        76,
+        77,
+        73,
+        55,
+        37,
+        43,
+        31,
+        66,
+        29,
+        9,
+        4,
+        48,
+        86,
+        36,
+        33,
+        20,
+        91,
+        53,
+        21,
+        51,
+        16,
+        63
+      ]
+    },
+    {
+      "start": 1160,
+      "end": 720,
+      "allowed_channels": [
+        98,
+        56,
+        8,
+        87,
+        1,
+        19,
+        59,
+        38,
+        28,
+        21,
+        24,
+        88,
+        7,
+        95,
+        81,
+        32,
+        3,
+        17,
+        76,
+        70,
+        99,
+        25,
+        73,
+        55,
+        74,
+        91,
+        90,
+        84,
+        50,
+        16,
+        86,
+        41,
+        22,
+        9,
+        0,
+        39,
+        10,
+        26,
+        12,
+        45,
+        63,
+        92,
+        40,
+        36,
+        11,
+        61,
+        4,
+        15,
+        44,
+        67,
+        60,
+        89,
+        30,
+        47,
+        79,
+        82,
+        66,
+        53,
+        6,
+        83
+      ]
+    }
+  ],
+  "time_preferences": [
+    {
+      "start": 0,
+      "end": 524,
+      "preferred_genre": "talk",
+      "bonus": 45
+    },
+    {
+      "start": 524,
+      "end": 705,
+      "preferred_genre": "kids",
+      "bonus": 26
+    },
+    {
+      "start": 705,
+      "end": 720,
+      "preferred_genre": "drama",
+      "bonus": 32
+    },
+    {
+      "start": 720,
+      "end": 720,
+      "preferred_genre": "gaming",
+      "bonus": 51
+    },
+    {
+      "start": 720,
+      "end": 720,
+      "preferred_genre": "movie",
+      "bonus": 72
+    },
+    {
+      "start": 720,
+      "end": 720,
+      "preferred_genre": "gaming",
+      "bonus": 44
+    }
+  ],
+  "channels": [
+    {
+      "channel_id": 0,
+      "channel_name": "LIVE Stream 1",
+      "programs": [
+        {
+          "program_id": "L_CH0_P0",
+          "start": 0,
+          "end": 76,
+          "genre": "drama",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        },
+        {
+          "program_id": "L_CH0_P1",
+          "start": 76,
+          "end": 137,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH0_P2",
+          "start": 137,
+          "end": 284,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=gWkhyPxMdEQ"
+        },
+        {
+          "program_id": "L_CH0_P3",
+          "start": 284,
+          "end": 407,
+          "genre": "news",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH0_P4",
+          "start": 407,
+          "end": 541,
+          "genre": "talk",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        }
+      ]
+    },
+    {
+      "channel_id": 1,
+      "channel_name": "LIVE Stream 2",
+      "programs": [
+        {
+          "program_id": "L_CH1_P0",
+          "start": 0,
+          "end": 133,
+          "genre": "documentary",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        },
+        {
+          "program_id": "L_CH1_P1",
+          "start": 133,
+          "end": 184,
+          "genre": "news",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH1_P2",
+          "start": 184,
+          "end": 235,
+          "genre": "kids",
+          "score": 54,
+          "link": "https://www.youtube.com/watch?v=JS2LFhZgREk"
+        },
+        {
+          "program_id": "L_CH1_P3",
+          "start": 235,
+          "end": 328,
+          "genre": "news",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH1_P4",
+          "start": 328,
+          "end": 409,
+          "genre": "news",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        }
+      ]
+    },
+    {
+      "channel_id": 2,
+      "channel_name": "LIVE Stream 3",
+      "programs": [
+        {
+          "program_id": "L_CH2_P0",
+          "start": 0,
+          "end": 82,
+          "genre": "news",
+          "score": 70,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH2_P1",
+          "start": 82,
+          "end": 224,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH2_P2",
+          "start": 224,
+          "end": 374,
+          "genre": "documentary",
+          "score": 40,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH2_P3",
+          "start": 374,
+          "end": 522,
+          "genre": "documentary",
+          "score": 73,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH2_P4",
+          "start": 522,
+          "end": 581,
+          "genre": "kids",
+          "score": 43,
+          "link": "https://www.youtube.com/watch?v=JS2LFhZgREk"
+        }
+      ]
+    },
+    {
+      "channel_id": 3,
+      "channel_name": "LIVE Stream 4",
+      "programs": [
+        {
+          "program_id": "L_CH3_P0",
+          "start": 0,
+          "end": 117,
+          "genre": "variety",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=9UDkloqRd7s"
+        },
+        {
+          "program_id": "L_CH3_P1",
+          "start": 117,
+          "end": 257,
+          "genre": "documentary",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH3_P2",
+          "start": 257,
+          "end": 300,
+          "genre": "news",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        },
+        {
+          "program_id": "L_CH3_P3",
+          "start": 300,
+          "end": 430,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        },
+        {
+          "program_id": "L_CH3_P4",
+          "start": 430,
+          "end": 539,
+          "genre": "variety",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=9UDkloqRd7s"
+        }
+      ]
+    },
+    {
+      "channel_id": 4,
+      "channel_name": "LIVE Stream 5",
+      "programs": [
+        {
+          "program_id": "L_CH4_P0",
+          "start": 0,
+          "end": 159,
+          "genre": "sports",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH4_P1",
+          "start": 159,
+          "end": 194,
+          "genre": "kids",
+          "score": 57,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH4_P2",
+          "start": 194,
+          "end": 333,
+          "genre": "music",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=-dmkXtBolw8"
+        },
+        {
+          "program_id": "L_CH4_P3",
+          "start": 333,
+          "end": 477,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH4_P4",
+          "start": 477,
+          "end": 569,
+          "genre": "news",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        }
+      ]
+    },
+    {
+      "channel_id": 5,
+      "channel_name": "LIVE Stream 6",
+      "programs": [
+        {
+          "program_id": "L_CH5_P0",
+          "start": 0,
+          "end": 72,
+          "genre": "news",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH5_P1",
+          "start": 72,
+          "end": 197,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH5_P2",
+          "start": 197,
+          "end": 351,
+          "genre": "news",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH5_P3",
+          "start": 351,
+          "end": 470,
+          "genre": "news",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH5_P4",
+          "start": 470,
+          "end": 499,
+          "genre": "news",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=M07cPT7uA2o"
+        }
+      ]
+    },
+    {
+      "channel_id": 6,
+      "channel_name": "LIVE Stream 7",
+      "programs": [
+        {
+          "program_id": "L_CH6_P0",
+          "start": 0,
+          "end": 157,
+          "genre": "news",
+          "score": 76,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH6_P1",
+          "start": 157,
+          "end": 307,
+          "genre": "news",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH6_P2",
+          "start": 307,
+          "end": 451,
+          "genre": "variety",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=9UDkloqRd7s"
+        },
+        {
+          "program_id": "L_CH6_P3",
+          "start": 451,
+          "end": 606,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH6_P4",
+          "start": 606,
+          "end": 673,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        }
+      ]
+    },
+    {
+      "channel_id": 7,
+      "channel_name": "LIVE Stream 8",
+      "programs": [
+        {
+          "program_id": "L_CH7_P0",
+          "start": 0,
+          "end": 157,
+          "genre": "kids",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH7_P1",
+          "start": 157,
+          "end": 311,
+          "genre": "kids",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH7_P2",
+          "start": 311,
+          "end": 461,
+          "genre": "drama",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH7_P3",
+          "start": 461,
+          "end": 606,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH7_P4",
+          "start": 606,
+          "end": 720,
+          "genre": "news",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        }
+      ]
+    },
+    {
+      "channel_id": 8,
+      "channel_name": "LIVE Stream 9",
+      "programs": [
+        {
+          "program_id": "L_CH8_P0",
+          "start": 0,
+          "end": 147,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=yjw3XxJJFik"
+        },
+        {
+          "program_id": "L_CH8_P1",
+          "start": 147,
+          "end": 301,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH8_P2",
+          "start": 301,
+          "end": 410,
+          "genre": "documentary",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH8_P3",
+          "start": 410,
+          "end": 529,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH8_P4",
+          "start": 529,
+          "end": 624,
+          "genre": "news",
+          "score": 54,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        }
+      ]
+    },
+    {
+      "channel_id": 9,
+      "channel_name": "LIVE Stream 10",
+      "programs": [
+        {
+          "program_id": "L_CH9_P0",
+          "start": 0,
+          "end": 121,
+          "genre": "documentary",
+          "score": 50,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        },
+        {
+          "program_id": "L_CH9_P1",
+          "start": 121,
+          "end": 261,
+          "genre": "documentary",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH9_P2",
+          "start": 261,
+          "end": 376,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH9_P3",
+          "start": 376,
+          "end": 486,
+          "genre": "news",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH9_P4",
+          "start": 486,
+          "end": 644,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        }
+      ]
+    },
+    {
+      "channel_id": 10,
+      "channel_name": "LIVE Stream 11",
+      "programs": [
+        {
+          "program_id": "L_CH10_P0",
+          "start": 0,
+          "end": 66,
+          "genre": "talk",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        },
+        {
+          "program_id": "L_CH10_P1",
+          "start": 66,
+          "end": 166,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH10_P2",
+          "start": 166,
+          "end": 286,
+          "genre": "news",
+          "score": 42,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH10_P3",
+          "start": 286,
+          "end": 428,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH10_P4",
+          "start": 428,
+          "end": 584,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        }
+      ]
+    },
+    {
+      "channel_id": 11,
+      "channel_name": "LIVE Stream 12",
+      "programs": [
+        {
+          "program_id": "L_CH11_P0",
+          "start": 0,
+          "end": 114,
+          "genre": "music",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH11_P1",
+          "start": 114,
+          "end": 206,
+          "genre": "news",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH11_P2",
+          "start": 206,
+          "end": 262,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=gWkhyPxMdEQ"
+        },
+        {
+          "program_id": "L_CH11_P3",
+          "start": 262,
+          "end": 413,
+          "genre": "news",
+          "score": 75,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH11_P4",
+          "start": 413,
+          "end": 556,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=1ENewOqrwLo"
+        }
+      ]
+    },
+    {
+      "channel_id": 12,
+      "channel_name": "LIVE Stream 13",
+      "programs": [
+        {
+          "program_id": "L_CH12_P0",
+          "start": 0,
+          "end": 39,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=0rEZ9Kx_SVM"
+        },
+        {
+          "program_id": "L_CH12_P1",
+          "start": 39,
+          "end": 171,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        },
+        {
+          "program_id": "L_CH12_P2",
+          "start": 171,
+          "end": 238,
+          "genre": "news",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH12_P3",
+          "start": 238,
+          "end": 354,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH12_P4",
+          "start": 354,
+          "end": 511,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        }
+      ]
+    },
+    {
+      "channel_id": 13,
+      "channel_name": "LIVE Stream 14",
+      "programs": [
+        {
+          "program_id": "L_CH13_P0",
+          "start": 0,
+          "end": 75,
+          "genre": "talk",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        },
+        {
+          "program_id": "L_CH13_P1",
+          "start": 75,
+          "end": 172,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH13_P2",
+          "start": 172,
+          "end": 319,
+          "genre": "drama",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH13_P3",
+          "start": 319,
+          "end": 425,
+          "genre": "news",
+          "score": 73,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH13_P4",
+          "start": 425,
+          "end": 518,
+          "genre": "drama",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        }
+      ]
+    },
+    {
+      "channel_id": 14,
+      "channel_name": "LIVE Stream 15",
+      "programs": [
+        {
+          "program_id": "L_CH14_P0",
+          "start": 0,
+          "end": 135,
+          "genre": "news",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=yjw3XxJJFik"
+        },
+        {
+          "program_id": "L_CH14_P1",
+          "start": 135,
+          "end": 246,
+          "genre": "news",
+          "score": 41,
+          "link": "https://www.youtube.com/watch?v=yjw3XxJJFik"
+        },
+        {
+          "program_id": "L_CH14_P2",
+          "start": 246,
+          "end": 363,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH14_P3",
+          "start": 363,
+          "end": 451,
+          "genre": "documentary",
+          "score": 40,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH14_P4",
+          "start": 451,
+          "end": 539,
+          "genre": "drama",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        }
+      ]
+    },
+    {
+      "channel_id": 15,
+      "channel_name": "LIVE Stream 16",
+      "programs": [
+        {
+          "program_id": "L_CH15_P0",
+          "start": 0,
+          "end": 105,
+          "genre": "news",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH15_P1",
+          "start": 105,
+          "end": 261,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH15_P2",
+          "start": 261,
+          "end": 312,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        },
+        {
+          "program_id": "L_CH15_P3",
+          "start": 312,
+          "end": 464,
+          "genre": "news",
+          "score": 83,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH15_P4",
+          "start": 464,
+          "end": 487,
+          "genre": "news",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=M07cPT7uA2o"
+        }
+      ]
+    },
+    {
+      "channel_id": 16,
+      "channel_name": "LIVE Stream 17",
+      "programs": [
+        {
+          "program_id": "L_CH16_P0",
+          "start": 0,
+          "end": 147,
+          "genre": "news",
+          "score": 54,
+          "link": "https://www.youtube.com/watch?v=1ENewOqrwLo"
+        },
+        {
+          "program_id": "L_CH16_P1",
+          "start": 147,
+          "end": 279,
+          "genre": "news",
+          "score": 65,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH16_P2",
+          "start": 279,
+          "end": 320,
+          "genre": "documentary",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH16_P3",
+          "start": 320,
+          "end": 476,
+          "genre": "sports",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH16_P4",
+          "start": 476,
+          "end": 602,
+          "genre": "drama",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        }
+      ]
+    },
+    {
+      "channel_id": 17,
+      "channel_name": "LIVE Stream 18",
+      "programs": [
+        {
+          "program_id": "L_CH17_P0",
+          "start": 0,
+          "end": 123,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH17_P1",
+          "start": 123,
+          "end": 263,
+          "genre": "kids",
+          "score": 65,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH17_P2",
+          "start": 263,
+          "end": 377,
+          "genre": "news",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH17_P3",
+          "start": 377,
+          "end": 499,
+          "genre": "kids",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH17_P4",
+          "start": 499,
+          "end": 644,
+          "genre": "news",
+          "score": 70,
+          "link": "https://www.youtube.com/watch?v=Y3fgUJ91ZvM"
+        }
+      ]
+    },
+    {
+      "channel_id": 18,
+      "channel_name": "LIVE Stream 19",
+      "programs": [
+        {
+          "program_id": "L_CH18_P0",
+          "start": 0,
+          "end": 53,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        },
+        {
+          "program_id": "L_CH18_P1",
+          "start": 53,
+          "end": 88,
+          "genre": "news",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH18_P2",
+          "start": 88,
+          "end": 158,
+          "genre": "news",
+          "score": 98,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH18_P3",
+          "start": 158,
+          "end": 219,
+          "genre": "news",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH18_P4",
+          "start": 219,
+          "end": 320,
+          "genre": "news",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        }
+      ]
+    },
+    {
+      "channel_id": 19,
+      "channel_name": "LIVE Stream 20",
+      "programs": [
+        {
+          "program_id": "L_CH19_P0",
+          "start": 0,
+          "end": 115,
+          "genre": "documentary",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH19_P1",
+          "start": 115,
+          "end": 175,
+          "genre": "news",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=TPxlXo9X0gQ"
+        },
+        {
+          "program_id": "L_CH19_P2",
+          "start": 175,
+          "end": 326,
+          "genre": "drama",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH19_P3",
+          "start": 326,
+          "end": 451,
+          "genre": "news",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        },
+        {
+          "program_id": "L_CH19_P4",
+          "start": 451,
+          "end": 485,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        }
+      ]
+    },
+    {
+      "channel_id": 20,
+      "channel_name": "LIVE Stream 21",
+      "programs": [
+        {
+          "program_id": "L_CH20_P0",
+          "start": 0,
+          "end": 147,
+          "genre": "news",
+          "score": 75,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH20_P1",
+          "start": 147,
+          "end": 246,
+          "genre": "news",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH20_P2",
+          "start": 246,
+          "end": 390,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH20_P3",
+          "start": 390,
+          "end": 532,
+          "genre": "documentary",
+          "score": 65,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH20_P4",
+          "start": 532,
+          "end": 622,
+          "genre": "news",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        }
+      ]
+    },
+    {
+      "channel_id": 21,
+      "channel_name": "LIVE Stream 22",
+      "programs": [
+        {
+          "program_id": "L_CH21_P0",
+          "start": 0,
+          "end": 143,
+          "genre": "news",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH21_P1",
+          "start": 143,
+          "end": 289,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=TPxlXo9X0gQ"
+        },
+        {
+          "program_id": "L_CH21_P2",
+          "start": 289,
+          "end": 399,
+          "genre": "news",
+          "score": 50,
+          "link": "https://www.youtube.com/watch?v=gWkhyPxMdEQ"
+        },
+        {
+          "program_id": "L_CH21_P3",
+          "start": 399,
+          "end": 547,
+          "genre": "news",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH21_P4",
+          "start": 547,
+          "end": 677,
+          "genre": "kids",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        }
+      ]
+    },
+    {
+      "channel_id": 22,
+      "channel_name": "LIVE Stream 23",
+      "programs": [
+        {
+          "program_id": "L_CH22_P0",
+          "start": 0,
+          "end": 128,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=M07cPT7uA2o"
+        },
+        {
+          "program_id": "L_CH22_P1",
+          "start": 128,
+          "end": 278,
+          "genre": "sports",
+          "score": 42,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH22_P2",
+          "start": 278,
+          "end": 389,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH22_P3",
+          "start": 389,
+          "end": 534,
+          "genre": "news",
+          "score": 75,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH22_P4",
+          "start": 534,
+          "end": 628,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        }
+      ]
+    },
+    {
+      "channel_id": 23,
+      "channel_name": "LIVE Stream 24",
+      "programs": [
+        {
+          "program_id": "L_CH23_P0",
+          "start": 0,
+          "end": 134,
+          "genre": "news",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH23_P1",
+          "start": 134,
+          "end": 241,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH23_P2",
+          "start": 241,
+          "end": 393,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=OiVfGx5_HTY"
+        },
+        {
+          "program_id": "L_CH23_P3",
+          "start": 393,
+          "end": 423,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH23_P4",
+          "start": 423,
+          "end": 491,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        }
+      ]
+    },
+    {
+      "channel_id": 24,
+      "channel_name": "LIVE Stream 25",
+      "programs": [
+        {
+          "program_id": "L_CH24_P0",
+          "start": 0,
+          "end": 142,
+          "genre": "news",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=1ENewOqrwLo"
+        },
+        {
+          "program_id": "L_CH24_P1",
+          "start": 142,
+          "end": 173,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH24_P2",
+          "start": 173,
+          "end": 281,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH24_P3",
+          "start": 281,
+          "end": 357,
+          "genre": "music",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH24_P4",
+          "start": 357,
+          "end": 441,
+          "genre": "news",
+          "score": 48,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        }
+      ]
+    },
+    {
+      "channel_id": 25,
+      "channel_name": "LIVE Stream 26",
+      "programs": [
+        {
+          "program_id": "L_CH25_P0",
+          "start": 0,
+          "end": 134,
+          "genre": "news",
+          "score": 53,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH25_P1",
+          "start": 134,
+          "end": 259,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        },
+        {
+          "program_id": "L_CH25_P2",
+          "start": 259,
+          "end": 393,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH25_P3",
+          "start": 393,
+          "end": 498,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH25_P4",
+          "start": 498,
+          "end": 565,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 26,
+      "channel_name": "LIVE Stream 27",
+      "programs": [
+        {
+          "program_id": "L_CH26_P0",
+          "start": 0,
+          "end": 146,
+          "genre": "documentary",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH26_P1",
+          "start": 146,
+          "end": 288,
+          "genre": "news",
+          "score": 43,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH26_P2",
+          "start": 288,
+          "end": 411,
+          "genre": "documentary",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH26_P3",
+          "start": 411,
+          "end": 568,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH26_P4",
+          "start": 568,
+          "end": 700,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        }
+      ]
+    },
+    {
+      "channel_id": 27,
+      "channel_name": "LIVE Stream 28",
+      "programs": [
+        {
+          "program_id": "L_CH27_P0",
+          "start": 0,
+          "end": 145,
+          "genre": "music",
+          "score": 50,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH27_P1",
+          "start": 145,
+          "end": 211,
+          "genre": "variety",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=RPrsiPQZXlw"
+        },
+        {
+          "program_id": "L_CH27_P2",
+          "start": 211,
+          "end": 312,
+          "genre": "news",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH27_P3",
+          "start": 312,
+          "end": 405,
+          "genre": "news",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH27_P4",
+          "start": 405,
+          "end": 504,
+          "genre": "news",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        }
+      ]
+    },
+    {
+      "channel_id": 28,
+      "channel_name": "LIVE Stream 29",
+      "programs": [
+        {
+          "program_id": "L_CH28_P0",
+          "start": 0,
+          "end": 155,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=gWkhyPxMdEQ"
+        },
+        {
+          "program_id": "L_CH28_P1",
+          "start": 155,
+          "end": 310,
+          "genre": "news",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        },
+        {
+          "program_id": "L_CH28_P2",
+          "start": 310,
+          "end": 410,
+          "genre": "drama",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        },
+        {
+          "program_id": "L_CH28_P3",
+          "start": 410,
+          "end": 497,
+          "genre": "news",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        },
+        {
+          "program_id": "L_CH28_P4",
+          "start": 497,
+          "end": 549,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        }
+      ]
+    },
+    {
+      "channel_id": 29,
+      "channel_name": "LIVE Stream 30",
+      "programs": [
+        {
+          "program_id": "L_CH29_P0",
+          "start": 0,
+          "end": 108,
+          "genre": "news",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH29_P1",
+          "start": 108,
+          "end": 222,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH29_P2",
+          "start": 222,
+          "end": 333,
+          "genre": "news",
+          "score": 98,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH29_P3",
+          "start": 333,
+          "end": 459,
+          "genre": "news",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH29_P4",
+          "start": 459,
+          "end": 569,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        }
+      ]
+    },
+    {
+      "channel_id": 30,
+      "channel_name": "LIVE Stream 31",
+      "programs": [
+        {
+          "program_id": "L_CH30_P0",
+          "start": 0,
+          "end": 158,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=Y3fgUJ91ZvM"
+        },
+        {
+          "program_id": "L_CH30_P1",
+          "start": 158,
+          "end": 297,
+          "genre": "documentary",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH30_P2",
+          "start": 297,
+          "end": 422,
+          "genre": "news",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        },
+        {
+          "program_id": "L_CH30_P3",
+          "start": 422,
+          "end": 477,
+          "genre": "news",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH30_P4",
+          "start": 477,
+          "end": 603,
+          "genre": "documentary",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        }
+      ]
+    },
+    {
+      "channel_id": 31,
+      "channel_name": "LIVE Stream 32",
+      "programs": [
+        {
+          "program_id": "L_CH31_P0",
+          "start": 0,
+          "end": 116,
+          "genre": "news",
+          "score": 93,
+          "link": "https://www.youtube.com/watch?v=1ENewOqrwLo"
+        },
+        {
+          "program_id": "L_CH31_P1",
+          "start": 116,
+          "end": 263,
+          "genre": "news",
+          "score": 43,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH31_P2",
+          "start": 263,
+          "end": 412,
+          "genre": "news",
+          "score": 98,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH31_P3",
+          "start": 412,
+          "end": 511,
+          "genre": "news",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH31_P4",
+          "start": 511,
+          "end": 668,
+          "genre": "talk",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        }
+      ]
+    },
+    {
+      "channel_id": 32,
+      "channel_name": "LIVE Stream 33",
+      "programs": [
+        {
+          "program_id": "L_CH32_P0",
+          "start": 0,
+          "end": 155,
+          "genre": "news",
+          "score": 83,
+          "link": "https://www.youtube.com/watch?v=Y3fgUJ91ZvM"
+        },
+        {
+          "program_id": "L_CH32_P1",
+          "start": 155,
+          "end": 239,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH32_P2",
+          "start": 239,
+          "end": 367,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=yjw3XxJJFik"
+        },
+        {
+          "program_id": "L_CH32_P3",
+          "start": 367,
+          "end": 508,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH32_P4",
+          "start": 508,
+          "end": 641,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        }
+      ]
+    },
+    {
+      "channel_id": 33,
+      "channel_name": "LIVE Stream 34",
+      "programs": [
+        {
+          "program_id": "L_CH33_P0",
+          "start": 0,
+          "end": 92,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=mzv7UswnrsU"
+        },
+        {
+          "program_id": "L_CH33_P1",
+          "start": 92,
+          "end": 180,
+          "genre": "news",
+          "score": 53,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH33_P2",
+          "start": 180,
+          "end": 221,
+          "genre": "kids",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH33_P3",
+          "start": 221,
+          "end": 347,
+          "genre": "talk",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        },
+        {
+          "program_id": "L_CH33_P4",
+          "start": 347,
+          "end": 396,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        }
+      ]
+    },
+    {
+      "channel_id": 34,
+      "channel_name": "LIVE Stream 35",
+      "programs": [
+        {
+          "program_id": "L_CH34_P0",
+          "start": 0,
+          "end": 146,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=mzv7UswnrsU"
+        },
+        {
+          "program_id": "L_CH34_P1",
+          "start": 146,
+          "end": 210,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH34_P2",
+          "start": 210,
+          "end": 248,
+          "genre": "news",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH34_P3",
+          "start": 248,
+          "end": 389,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=yjw3XxJJFik"
+        },
+        {
+          "program_id": "L_CH34_P4",
+          "start": 389,
+          "end": 485,
+          "genre": "documentary",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        }
+      ]
+    },
+    {
+      "channel_id": 35,
+      "channel_name": "LIVE Stream 36",
+      "programs": [
+        {
+          "program_id": "L_CH35_P0",
+          "start": 0,
+          "end": 130,
+          "genre": "variety",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=9UDkloqRd7s"
+        },
+        {
+          "program_id": "L_CH35_P1",
+          "start": 130,
+          "end": 240,
+          "genre": "documentary",
+          "score": 95,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH35_P2",
+          "start": 240,
+          "end": 338,
+          "genre": "music",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH35_P3",
+          "start": 338,
+          "end": 443,
+          "genre": "drama",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        },
+        {
+          "program_id": "L_CH35_P4",
+          "start": 443,
+          "end": 594,
+          "genre": "kids",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        }
+      ]
+    },
+    {
+      "channel_id": 36,
+      "channel_name": "LIVE Stream 37",
+      "programs": [
+        {
+          "program_id": "L_CH36_P0",
+          "start": 0,
+          "end": 83,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH36_P1",
+          "start": 83,
+          "end": 167,
+          "genre": "documentary",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH36_P2",
+          "start": 167,
+          "end": 235,
+          "genre": "news",
+          "score": 43,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH36_P3",
+          "start": 235,
+          "end": 386,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH36_P4",
+          "start": 386,
+          "end": 504,
+          "genre": "news",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        }
+      ]
+    },
+    {
+      "channel_id": 37,
+      "channel_name": "LIVE Stream 38",
+      "programs": [
+        {
+          "program_id": "L_CH37_P0",
+          "start": 0,
+          "end": 33,
+          "genre": "news",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH37_P1",
+          "start": 33,
+          "end": 128,
+          "genre": "kids",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH37_P2",
+          "start": 128,
+          "end": 217,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        },
+        {
+          "program_id": "L_CH37_P3",
+          "start": 217,
+          "end": 325,
+          "genre": "news",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH37_P4",
+          "start": 325,
+          "end": 453,
+          "genre": "news",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        }
+      ]
+    },
+    {
+      "channel_id": 38,
+      "channel_name": "LIVE Stream 39",
+      "programs": [
+        {
+          "program_id": "L_CH38_P0",
+          "start": 0,
+          "end": 95,
+          "genre": "documentary",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH38_P1",
+          "start": 95,
+          "end": 206,
+          "genre": "kids",
+          "score": 98,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH38_P2",
+          "start": 206,
+          "end": 365,
+          "genre": "kids",
+          "score": 65,
+          "link": "https://www.youtube.com/watch?v=JS2LFhZgREk"
+        },
+        {
+          "program_id": "L_CH38_P3",
+          "start": 365,
+          "end": 478,
+          "genre": "news",
+          "score": 50,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        },
+        {
+          "program_id": "L_CH38_P4",
+          "start": 478,
+          "end": 571,
+          "genre": "documentary",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        }
+      ]
+    },
+    {
+      "channel_id": 39,
+      "channel_name": "LIVE Stream 40",
+      "programs": [
+        {
+          "program_id": "L_CH39_P0",
+          "start": 0,
+          "end": 69,
+          "genre": "news",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH39_P1",
+          "start": 69,
+          "end": 142,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH39_P2",
+          "start": 142,
+          "end": 299,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH39_P3",
+          "start": 299,
+          "end": 408,
+          "genre": "news",
+          "score": 40,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH39_P4",
+          "start": 408,
+          "end": 552,
+          "genre": "drama",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        }
+      ]
+    },
+    {
+      "channel_id": 40,
+      "channel_name": "LIVE Stream 41",
+      "programs": [
+        {
+          "program_id": "L_CH40_P0",
+          "start": 0,
+          "end": 151,
+          "genre": "documentary",
+          "score": 75,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH40_P1",
+          "start": 151,
+          "end": 270,
+          "genre": "kids",
+          "score": 53,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH40_P2",
+          "start": 270,
+          "end": 388,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH40_P3",
+          "start": 388,
+          "end": 533,
+          "genre": "news",
+          "score": 95,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH40_P4",
+          "start": 533,
+          "end": 668,
+          "genre": "documentary",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        }
+      ]
+    },
+    {
+      "channel_id": 41,
+      "channel_name": "LIVE Stream 42",
+      "programs": [
+        {
+          "program_id": "L_CH41_P0",
+          "start": 0,
+          "end": 128,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH41_P1",
+          "start": 128,
+          "end": 280,
+          "genre": "talk",
+          "score": 48,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        },
+        {
+          "program_id": "L_CH41_P2",
+          "start": 280,
+          "end": 367,
+          "genre": "news",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH41_P3",
+          "start": 367,
+          "end": 413,
+          "genre": "news",
+          "score": 48,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH41_P4",
+          "start": 413,
+          "end": 515,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        }
+      ]
+    },
+    {
+      "channel_id": 42,
+      "channel_name": "LIVE Stream 43",
+      "programs": [
+        {
+          "program_id": "L_CH42_P0",
+          "start": 0,
+          "end": 153,
+          "genre": "news",
+          "score": 83,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH42_P1",
+          "start": 153,
+          "end": 287,
+          "genre": "news",
+          "score": 40,
+          "link": "https://www.youtube.com/watch?v=M07cPT7uA2o"
+        },
+        {
+          "program_id": "L_CH42_P2",
+          "start": 287,
+          "end": 344,
+          "genre": "news",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH42_P3",
+          "start": 344,
+          "end": 489,
+          "genre": "news",
+          "score": 57,
+          "link": "https://www.youtube.com/watch?v=OiVfGx5_HTY"
+        },
+        {
+          "program_id": "L_CH42_P4",
+          "start": 489,
+          "end": 562,
+          "genre": "drama",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        }
+      ]
+    },
+    {
+      "channel_id": 43,
+      "channel_name": "LIVE Stream 44",
+      "programs": [
+        {
+          "program_id": "L_CH43_P0",
+          "start": 0,
+          "end": 158,
+          "genre": "news",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        },
+        {
+          "program_id": "L_CH43_P1",
+          "start": 158,
+          "end": 233,
+          "genre": "news",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH43_P2",
+          "start": 233,
+          "end": 266,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=TPxlXo9X0gQ"
+        },
+        {
+          "program_id": "L_CH43_P3",
+          "start": 266,
+          "end": 359,
+          "genre": "news",
+          "score": 69,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH43_P4",
+          "start": 359,
+          "end": 458,
+          "genre": "documentary",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        }
+      ]
+    },
+    {
+      "channel_id": 44,
+      "channel_name": "LIVE Stream 45",
+      "programs": [
+        {
+          "program_id": "L_CH44_P0",
+          "start": 0,
+          "end": 131,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH44_P1",
+          "start": 131,
+          "end": 261,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        },
+        {
+          "program_id": "L_CH44_P2",
+          "start": 261,
+          "end": 378,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH44_P3",
+          "start": 378,
+          "end": 522,
+          "genre": "kids",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH44_P4",
+          "start": 522,
+          "end": 663,
+          "genre": "drama",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        }
+      ]
+    },
+    {
+      "channel_id": 45,
+      "channel_name": "LIVE Stream 46",
+      "programs": [
+        {
+          "program_id": "L_CH45_P0",
+          "start": 0,
+          "end": 141,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH45_P1",
+          "start": 141,
+          "end": 263,
+          "genre": "drama",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        },
+        {
+          "program_id": "L_CH45_P2",
+          "start": 263,
+          "end": 353,
+          "genre": "news",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH45_P3",
+          "start": 353,
+          "end": 445,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH45_P4",
+          "start": 445,
+          "end": 529,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        }
+      ]
+    },
+    {
+      "channel_id": 46,
+      "channel_name": "LIVE Stream 47",
+      "programs": [
+        {
+          "program_id": "L_CH46_P0",
+          "start": 0,
+          "end": 116,
+          "genre": "news",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH46_P1",
+          "start": 116,
+          "end": 241,
+          "genre": "news",
+          "score": 95,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        },
+        {
+          "program_id": "L_CH46_P2",
+          "start": 241,
+          "end": 382,
+          "genre": "news",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH46_P3",
+          "start": 382,
+          "end": 469,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH46_P4",
+          "start": 469,
+          "end": 608,
+          "genre": "news",
+          "score": 57,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        }
+      ]
+    },
+    {
+      "channel_id": 47,
+      "channel_name": "LIVE Stream 48",
+      "programs": [
+        {
+          "program_id": "L_CH47_P0",
+          "start": 0,
+          "end": 155,
+          "genre": "kids",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH47_P1",
+          "start": 155,
+          "end": 297,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH47_P2",
+          "start": 297,
+          "end": 430,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=0rEZ9Kx_SVM"
+        },
+        {
+          "program_id": "L_CH47_P3",
+          "start": 430,
+          "end": 580,
+          "genre": "news",
+          "score": 50,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH47_P4",
+          "start": 580,
+          "end": 682,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        }
+      ]
+    },
+    {
+      "channel_id": 48,
+      "channel_name": "LIVE Stream 49",
+      "programs": [
+        {
+          "program_id": "L_CH48_P0",
+          "start": 0,
+          "end": 125,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        },
+        {
+          "program_id": "L_CH48_P1",
+          "start": 125,
+          "end": 201,
+          "genre": "kids",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH48_P2",
+          "start": 201,
+          "end": 330,
+          "genre": "music",
+          "score": 93,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH48_P3",
+          "start": 330,
+          "end": 448,
+          "genre": "news",
+          "score": 41,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH48_P4",
+          "start": 448,
+          "end": 545,
+          "genre": "documentary",
+          "score": 93,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        }
+      ]
+    },
+    {
+      "channel_id": 49,
+      "channel_name": "LIVE Stream 50",
+      "programs": [
+        {
+          "program_id": "L_CH49_P0",
+          "start": 0,
+          "end": 112,
+          "genre": "documentary",
+          "score": 70,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH49_P1",
+          "start": 112,
+          "end": 250,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        },
+        {
+          "program_id": "L_CH49_P2",
+          "start": 250,
+          "end": 406,
+          "genre": "drama",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH49_P3",
+          "start": 406,
+          "end": 515,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH49_P4",
+          "start": 515,
+          "end": 543,
+          "genre": "documentary",
+          "score": 96,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        }
+      ]
+    },
+    {
+      "channel_id": 50,
+      "channel_name": "LIVE Stream 51",
+      "programs": [
+        {
+          "program_id": "L_CH50_P0",
+          "start": 0,
+          "end": 146,
+          "genre": "news",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH50_P1",
+          "start": 146,
+          "end": 295,
+          "genre": "sports",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH50_P2",
+          "start": 295,
+          "end": 364,
+          "genre": "news",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH50_P3",
+          "start": 364,
+          "end": 432,
+          "genre": "news",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH50_P4",
+          "start": 432,
+          "end": 573,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        }
+      ]
+    },
+    {
+      "channel_id": 51,
+      "channel_name": "LIVE Stream 52",
+      "programs": [
+        {
+          "program_id": "L_CH51_P0",
+          "start": 0,
+          "end": 158,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH51_P1",
+          "start": 158,
+          "end": 223,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH51_P2",
+          "start": 223,
+          "end": 331,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        },
+        {
+          "program_id": "L_CH51_P3",
+          "start": 331,
+          "end": 428,
+          "genre": "music",
+          "score": 48,
+          "link": "https://www.youtube.com/watch?v=-dmkXtBolw8"
+        },
+        {
+          "program_id": "L_CH51_P4",
+          "start": 428,
+          "end": 479,
+          "genre": "news",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=gWkhyPxMdEQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 52,
+      "channel_name": "LIVE Stream 53",
+      "programs": [
+        {
+          "program_id": "L_CH52_P0",
+          "start": 0,
+          "end": 149,
+          "genre": "news",
+          "score": 54,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH52_P1",
+          "start": 149,
+          "end": 272,
+          "genre": "news",
+          "score": 48,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        },
+        {
+          "program_id": "L_CH52_P2",
+          "start": 272,
+          "end": 389,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=OiVfGx5_HTY"
+        },
+        {
+          "program_id": "L_CH52_P3",
+          "start": 389,
+          "end": 532,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        },
+        {
+          "program_id": "L_CH52_P4",
+          "start": 532,
+          "end": 667,
+          "genre": "news",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        }
+      ]
+    },
+    {
+      "channel_id": 53,
+      "channel_name": "LIVE Stream 54",
+      "programs": [
+        {
+          "program_id": "L_CH53_P0",
+          "start": 0,
+          "end": 156,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH53_P1",
+          "start": 156,
+          "end": 311,
+          "genre": "news",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH53_P2",
+          "start": 311,
+          "end": 422,
+          "genre": "sports",
+          "score": 41,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH53_P3",
+          "start": 422,
+          "end": 559,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH53_P4",
+          "start": 559,
+          "end": 686,
+          "genre": "news",
+          "score": 96,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        }
+      ]
+    },
+    {
+      "channel_id": 54,
+      "channel_name": "LIVE Stream 55",
+      "programs": [
+        {
+          "program_id": "L_CH54_P0",
+          "start": 0,
+          "end": 111,
+          "genre": "documentary",
+          "score": 95,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH54_P1",
+          "start": 111,
+          "end": 218,
+          "genre": "news",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=mzv7UswnrsU"
+        },
+        {
+          "program_id": "L_CH54_P2",
+          "start": 218,
+          "end": 268,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH54_P3",
+          "start": 268,
+          "end": 363,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH54_P4",
+          "start": 363,
+          "end": 459,
+          "genre": "documentary",
+          "score": 93,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        }
+      ]
+    },
+    {
+      "channel_id": 55,
+      "channel_name": "LIVE Stream 56",
+      "programs": [
+        {
+          "program_id": "L_CH55_P0",
+          "start": 0,
+          "end": 144,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH55_P1",
+          "start": 144,
+          "end": 241,
+          "genre": "news",
+          "score": 96,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH55_P2",
+          "start": 241,
+          "end": 351,
+          "genre": "news",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        },
+        {
+          "program_id": "L_CH55_P3",
+          "start": 351,
+          "end": 470,
+          "genre": "news",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH55_P4",
+          "start": 470,
+          "end": 552,
+          "genre": "drama",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        }
+      ]
+    },
+    {
+      "channel_id": 56,
+      "channel_name": "LIVE Stream 57",
+      "programs": [
+        {
+          "program_id": "L_CH56_P0",
+          "start": 0,
+          "end": 120,
+          "genre": "music",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH56_P1",
+          "start": 120,
+          "end": 168,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH56_P2",
+          "start": 168,
+          "end": 289,
+          "genre": "news",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        },
+        {
+          "program_id": "L_CH56_P3",
+          "start": 289,
+          "end": 378,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH56_P4",
+          "start": 378,
+          "end": 412,
+          "genre": "news",
+          "score": 41,
+          "link": "https://www.youtube.com/watch?v=gWkhyPxMdEQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 57,
+      "channel_name": "LIVE Stream 58",
+      "programs": [
+        {
+          "program_id": "L_CH57_P0",
+          "start": 0,
+          "end": 80,
+          "genre": "news",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH57_P1",
+          "start": 80,
+          "end": 229,
+          "genre": "news",
+          "score": 98,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        },
+        {
+          "program_id": "L_CH57_P2",
+          "start": 229,
+          "end": 352,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        },
+        {
+          "program_id": "L_CH57_P3",
+          "start": 352,
+          "end": 442,
+          "genre": "news",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH57_P4",
+          "start": 442,
+          "end": 519,
+          "genre": "news",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 58,
+      "channel_name": "LIVE Stream 59",
+      "programs": [
+        {
+          "program_id": "L_CH58_P0",
+          "start": 0,
+          "end": 96,
+          "genre": "kids",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH58_P1",
+          "start": 96,
+          "end": 145,
+          "genre": "drama",
+          "score": 76,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH58_P2",
+          "start": 145,
+          "end": 297,
+          "genre": "music",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=-dmkXtBolw8"
+        },
+        {
+          "program_id": "L_CH58_P3",
+          "start": 297,
+          "end": 444,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH58_P4",
+          "start": 444,
+          "end": 557,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        }
+      ]
+    },
+    {
+      "channel_id": 59,
+      "channel_name": "LIVE Stream 60",
+      "programs": [
+        {
+          "program_id": "L_CH59_P0",
+          "start": 0,
+          "end": 151,
+          "genre": "documentary",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        },
+        {
+          "program_id": "L_CH59_P1",
+          "start": 151,
+          "end": 263,
+          "genre": "news",
+          "score": 53,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH59_P2",
+          "start": 263,
+          "end": 389,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH59_P3",
+          "start": 389,
+          "end": 509,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        },
+        {
+          "program_id": "L_CH59_P4",
+          "start": 509,
+          "end": 567,
+          "genre": "drama",
+          "score": 93,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        }
+      ]
+    },
+    {
+      "channel_id": 60,
+      "channel_name": "LIVE Stream 61",
+      "programs": [
+        {
+          "program_id": "L_CH60_P0",
+          "start": 0,
+          "end": 71,
+          "genre": "news",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH60_P1",
+          "start": 71,
+          "end": 192,
+          "genre": "drama",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH60_P2",
+          "start": 192,
+          "end": 326,
+          "genre": "documentary",
+          "score": 40,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        },
+        {
+          "program_id": "L_CH60_P3",
+          "start": 326,
+          "end": 444,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH60_P4",
+          "start": 444,
+          "end": 560,
+          "genre": "news",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        }
+      ]
+    },
+    {
+      "channel_id": 61,
+      "channel_name": "LIVE Stream 62",
+      "programs": [
+        {
+          "program_id": "L_CH61_P0",
+          "start": 0,
+          "end": 151,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH61_P1",
+          "start": 151,
+          "end": 290,
+          "genre": "documentary",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH61_P2",
+          "start": 290,
+          "end": 436,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH61_P3",
+          "start": 436,
+          "end": 459,
+          "genre": "variety",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=9UDkloqRd7s"
+        },
+        {
+          "program_id": "L_CH61_P4",
+          "start": 459,
+          "end": 593,
+          "genre": "news",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        }
+      ]
+    },
+    {
+      "channel_id": 62,
+      "channel_name": "LIVE Stream 63",
+      "programs": [
+        {
+          "program_id": "L_CH62_P0",
+          "start": 0,
+          "end": 101,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH62_P1",
+          "start": 101,
+          "end": 200,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH62_P2",
+          "start": 200,
+          "end": 332,
+          "genre": "news",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH62_P3",
+          "start": 332,
+          "end": 477,
+          "genre": "sports",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH62_P4",
+          "start": 477,
+          "end": 595,
+          "genre": "news",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 63,
+      "channel_name": "LIVE Stream 64",
+      "programs": [
+        {
+          "program_id": "L_CH63_P0",
+          "start": 0,
+          "end": 71,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH63_P1",
+          "start": 71,
+          "end": 148,
+          "genre": "news",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH63_P2",
+          "start": 148,
+          "end": 280,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH63_P3",
+          "start": 280,
+          "end": 362,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH63_P4",
+          "start": 362,
+          "end": 447,
+          "genre": "news",
+          "score": 65,
+          "link": "https://www.youtube.com/watch?v=Y3fgUJ91ZvM"
+        }
+      ]
+    },
+    {
+      "channel_id": 64,
+      "channel_name": "LIVE Stream 65",
+      "programs": [
+        {
+          "program_id": "L_CH64_P0",
+          "start": 0,
+          "end": 82,
+          "genre": "news",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH64_P1",
+          "start": 82,
+          "end": 186,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH64_P2",
+          "start": 186,
+          "end": 296,
+          "genre": "kids",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH64_P3",
+          "start": 296,
+          "end": 419,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=Y3fgUJ91ZvM"
+        },
+        {
+          "program_id": "L_CH64_P4",
+          "start": 419,
+          "end": 525,
+          "genre": "news",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        }
+      ]
+    },
+    {
+      "channel_id": 65,
+      "channel_name": "LIVE Stream 66",
+      "programs": [
+        {
+          "program_id": "L_CH65_P0",
+          "start": 0,
+          "end": 134,
+          "genre": "kids",
+          "score": 76,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH65_P1",
+          "start": 134,
+          "end": 274,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        },
+        {
+          "program_id": "L_CH65_P2",
+          "start": 274,
+          "end": 356,
+          "genre": "kids",
+          "score": 60,
+          "link": "https://www.youtube.com/watch?v=JS2LFhZgREk"
+        },
+        {
+          "program_id": "L_CH65_P3",
+          "start": 356,
+          "end": 412,
+          "genre": "news",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH65_P4",
+          "start": 412,
+          "end": 555,
+          "genre": "news",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        }
+      ]
+    },
+    {
+      "channel_id": 66,
+      "channel_name": "LIVE Stream 67",
+      "programs": [
+        {
+          "program_id": "L_CH66_P0",
+          "start": 0,
+          "end": 90,
+          "genre": "documentary",
+          "score": 95,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH66_P1",
+          "start": 90,
+          "end": 185,
+          "genre": "news",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH66_P2",
+          "start": 185,
+          "end": 246,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=Y3fgUJ91ZvM"
+        },
+        {
+          "program_id": "L_CH66_P3",
+          "start": 246,
+          "end": 332,
+          "genre": "news",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH66_P4",
+          "start": 332,
+          "end": 395,
+          "genre": "documentary",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        }
+      ]
+    },
+    {
+      "channel_id": 67,
+      "channel_name": "LIVE Stream 68",
+      "programs": [
+        {
+          "program_id": "L_CH67_P0",
+          "start": 0,
+          "end": 142,
+          "genre": "variety",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=RPrsiPQZXlw"
+        },
+        {
+          "program_id": "L_CH67_P1",
+          "start": 142,
+          "end": 261,
+          "genre": "sports",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH67_P2",
+          "start": 261,
+          "end": 308,
+          "genre": "documentary",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH67_P3",
+          "start": 308,
+          "end": 426,
+          "genre": "music",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=-dmkXtBolw8"
+        },
+        {
+          "program_id": "L_CH67_P4",
+          "start": 426,
+          "end": 502,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        }
+      ]
+    },
+    {
+      "channel_id": 68,
+      "channel_name": "LIVE Stream 69",
+      "programs": [
+        {
+          "program_id": "L_CH68_P0",
+          "start": 0,
+          "end": 126,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=mzv7UswnrsU"
+        },
+        {
+          "program_id": "L_CH68_P1",
+          "start": 126,
+          "end": 219,
+          "genre": "documentary",
+          "score": 73,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH68_P2",
+          "start": 219,
+          "end": 325,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH68_P3",
+          "start": 325,
+          "end": 399,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH68_P4",
+          "start": 399,
+          "end": 532,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        }
+      ]
+    },
+    {
+      "channel_id": 69,
+      "channel_name": "LIVE Stream 70",
+      "programs": [
+        {
+          "program_id": "L_CH69_P0",
+          "start": 0,
+          "end": 152,
+          "genre": "variety",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=RPrsiPQZXlw"
+        },
+        {
+          "program_id": "L_CH69_P1",
+          "start": 152,
+          "end": 291,
+          "genre": "news",
+          "score": 65,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH69_P2",
+          "start": 291,
+          "end": 386,
+          "genre": "documentary",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH69_P3",
+          "start": 386,
+          "end": 454,
+          "genre": "news",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH69_P4",
+          "start": 454,
+          "end": 590,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        }
+      ]
+    },
+    {
+      "channel_id": 70,
+      "channel_name": "LIVE Stream 71",
+      "programs": [
+        {
+          "program_id": "L_CH70_P0",
+          "start": 0,
+          "end": 152,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH70_P1",
+          "start": 152,
+          "end": 257,
+          "genre": "news",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=mzv7UswnrsU"
+        },
+        {
+          "program_id": "L_CH70_P2",
+          "start": 257,
+          "end": 404,
+          "genre": "news",
+          "score": 95,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH70_P3",
+          "start": 404,
+          "end": 509,
+          "genre": "news",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=0rEZ9Kx_SVM"
+        },
+        {
+          "program_id": "L_CH70_P4",
+          "start": 509,
+          "end": 575,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        }
+      ]
+    },
+    {
+      "channel_id": 71,
+      "channel_name": "LIVE Stream 72",
+      "programs": [
+        {
+          "program_id": "L_CH71_P0",
+          "start": 0,
+          "end": 68,
+          "genre": "news",
+          "score": 95,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH71_P1",
+          "start": 68,
+          "end": 152,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        },
+        {
+          "program_id": "L_CH71_P2",
+          "start": 152,
+          "end": 281,
+          "genre": "news",
+          "score": 48,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH71_P3",
+          "start": 281,
+          "end": 387,
+          "genre": "documentary",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH71_P4",
+          "start": 387,
+          "end": 464,
+          "genre": "news",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        }
+      ]
+    },
+    {
+      "channel_id": 72,
+      "channel_name": "LIVE Stream 73",
+      "programs": [
+        {
+          "program_id": "L_CH72_P0",
+          "start": 0,
+          "end": 128,
+          "genre": "documentary",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH72_P1",
+          "start": 128,
+          "end": 284,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH72_P2",
+          "start": 284,
+          "end": 382,
+          "genre": "variety",
+          "score": 50,
+          "link": "https://www.youtube.com/watch?v=RPrsiPQZXlw"
+        },
+        {
+          "program_id": "L_CH72_P3",
+          "start": 382,
+          "end": 492,
+          "genre": "news",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH72_P4",
+          "start": 492,
+          "end": 612,
+          "genre": "news",
+          "score": 73,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        }
+      ]
+    },
+    {
+      "channel_id": 73,
+      "channel_name": "LIVE Stream 74",
+      "programs": [
+        {
+          "program_id": "L_CH73_P0",
+          "start": 0,
+          "end": 150,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH73_P1",
+          "start": 150,
+          "end": 263,
+          "genre": "documentary",
+          "score": 57,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH73_P2",
+          "start": 263,
+          "end": 404,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=Y3fgUJ91ZvM"
+        },
+        {
+          "program_id": "L_CH73_P3",
+          "start": 404,
+          "end": 500,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH73_P4",
+          "start": 500,
+          "end": 592,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        }
+      ]
+    },
+    {
+      "channel_id": 74,
+      "channel_name": "LIVE Stream 75",
+      "programs": [
+        {
+          "program_id": "L_CH74_P0",
+          "start": 0,
+          "end": 131,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=mzv7UswnrsU"
+        },
+        {
+          "program_id": "L_CH74_P1",
+          "start": 131,
+          "end": 283,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=M07cPT7uA2o"
+        },
+        {
+          "program_id": "L_CH74_P2",
+          "start": 283,
+          "end": 348,
+          "genre": "news",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        },
+        {
+          "program_id": "L_CH74_P3",
+          "start": 348,
+          "end": 437,
+          "genre": "documentary",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH74_P4",
+          "start": 437,
+          "end": 546,
+          "genre": "news",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        }
+      ]
+    },
+    {
+      "channel_id": 75,
+      "channel_name": "LIVE Stream 76",
+      "programs": [
+        {
+          "program_id": "L_CH75_P0",
+          "start": 0,
+          "end": 148,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH75_P1",
+          "start": 148,
+          "end": 228,
+          "genre": "documentary",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        },
+        {
+          "program_id": "L_CH75_P2",
+          "start": 228,
+          "end": 354,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH75_P3",
+          "start": 354,
+          "end": 437,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=5UdP15IyPwY"
+        },
+        {
+          "program_id": "L_CH75_P4",
+          "start": 437,
+          "end": 562,
+          "genre": "news",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        }
+      ]
+    },
+    {
+      "channel_id": 76,
+      "channel_name": "LIVE Stream 77",
+      "programs": [
+        {
+          "program_id": "L_CH76_P0",
+          "start": 0,
+          "end": 34,
+          "genre": "kids",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=JS2LFhZgREk"
+        },
+        {
+          "program_id": "L_CH76_P1",
+          "start": 34,
+          "end": 178,
+          "genre": "documentary",
+          "score": 42,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        },
+        {
+          "program_id": "L_CH76_P2",
+          "start": 178,
+          "end": 244,
+          "genre": "variety",
+          "score": 93,
+          "link": "https://www.youtube.com/watch?v=RPrsiPQZXlw"
+        },
+        {
+          "program_id": "L_CH76_P3",
+          "start": 244,
+          "end": 328,
+          "genre": "music",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH76_P4",
+          "start": 328,
+          "end": 395,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=TPxlXo9X0gQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 77,
+      "channel_name": "LIVE Stream 78",
+      "programs": [
+        {
+          "program_id": "L_CH77_P0",
+          "start": 0,
+          "end": 103,
+          "genre": "news",
+          "score": 92,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH77_P1",
+          "start": 103,
+          "end": 243,
+          "genre": "news",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH77_P2",
+          "start": 243,
+          "end": 329,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH77_P3",
+          "start": 329,
+          "end": 466,
+          "genre": "news",
+          "score": 87,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        },
+        {
+          "program_id": "L_CH77_P4",
+          "start": 466,
+          "end": 610,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        }
+      ]
+    },
+    {
+      "channel_id": 78,
+      "channel_name": "LIVE Stream 79",
+      "programs": [
+        {
+          "program_id": "L_CH78_P0",
+          "start": 0,
+          "end": 142,
+          "genre": "music",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH78_P1",
+          "start": 142,
+          "end": 270,
+          "genre": "music",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=3MOrgUjiigE"
+        },
+        {
+          "program_id": "L_CH78_P2",
+          "start": 270,
+          "end": 423,
+          "genre": "sports",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH78_P3",
+          "start": 423,
+          "end": 467,
+          "genre": "news",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH78_P4",
+          "start": 467,
+          "end": 541,
+          "genre": "news",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        }
+      ]
+    },
+    {
+      "channel_id": 79,
+      "channel_name": "LIVE Stream 80",
+      "programs": [
+        {
+          "program_id": "L_CH79_P0",
+          "start": 0,
+          "end": 49,
+          "genre": "news",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH79_P1",
+          "start": 49,
+          "end": 143,
+          "genre": "news",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=mzv7UswnrsU"
+        },
+        {
+          "program_id": "L_CH79_P2",
+          "start": 143,
+          "end": 285,
+          "genre": "news",
+          "score": 83,
+          "link": "https://www.youtube.com/watch?v=0rEZ9Kx_SVM"
+        },
+        {
+          "program_id": "L_CH79_P3",
+          "start": 285,
+          "end": 412,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH79_P4",
+          "start": 412,
+          "end": 474,
+          "genre": "documentary",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        }
+      ]
+    },
+    {
+      "channel_id": 80,
+      "channel_name": "LIVE Stream 81",
+      "programs": [
+        {
+          "program_id": "L_CH80_P0",
+          "start": 0,
+          "end": 63,
+          "genre": "sports",
+          "score": 78,
+          "link": "https://www.youtube.com/watch?v=6nTLWGT2ZB4"
+        },
+        {
+          "program_id": "L_CH80_P1",
+          "start": 63,
+          "end": 197,
+          "genre": "documentary",
+          "score": 72,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH80_P2",
+          "start": 197,
+          "end": 288,
+          "genre": "kids",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH80_P3",
+          "start": 288,
+          "end": 368,
+          "genre": "news",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH80_P4",
+          "start": 368,
+          "end": 485,
+          "genre": "news",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=TPxlXo9X0gQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 81,
+      "channel_name": "LIVE Stream 82",
+      "programs": [
+        {
+          "program_id": "L_CH81_P0",
+          "start": 0,
+          "end": 104,
+          "genre": "news",
+          "score": 99,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH81_P1",
+          "start": 104,
+          "end": 236,
+          "genre": "news",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH81_P2",
+          "start": 236,
+          "end": 384,
+          "genre": "news",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=1ENewOqrwLo"
+        },
+        {
+          "program_id": "L_CH81_P3",
+          "start": 384,
+          "end": 524,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=akDdJTfXeu8"
+        },
+        {
+          "program_id": "L_CH81_P4",
+          "start": 524,
+          "end": 673,
+          "genre": "variety",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=RPrsiPQZXlw"
+        }
+      ]
+    },
+    {
+      "channel_id": 82,
+      "channel_name": "LIVE Stream 83",
+      "programs": [
+        {
+          "program_id": "L_CH82_P0",
+          "start": 0,
+          "end": 138,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH82_P1",
+          "start": 138,
+          "end": 286,
+          "genre": "news",
+          "score": 70,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH82_P2",
+          "start": 286,
+          "end": 415,
+          "genre": "drama",
+          "score": 66,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH82_P3",
+          "start": 415,
+          "end": 545,
+          "genre": "music",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=-dmkXtBolw8"
+        },
+        {
+          "program_id": "L_CH82_P4",
+          "start": 545,
+          "end": 626,
+          "genre": "news",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        }
+      ]
+    },
+    {
+      "channel_id": 83,
+      "channel_name": "LIVE Stream 84",
+      "programs": [
+        {
+          "program_id": "L_CH83_P0",
+          "start": 0,
+          "end": 106,
+          "genre": "news",
+          "score": 58,
+          "link": "https://www.youtube.com/watch?v=NxP9Y3VMdsk"
+        },
+        {
+          "program_id": "L_CH83_P1",
+          "start": 106,
+          "end": 251,
+          "genre": "kids",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=JS2LFhZgREk"
+        },
+        {
+          "program_id": "L_CH83_P2",
+          "start": 251,
+          "end": 389,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH83_P3",
+          "start": 389,
+          "end": 541,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=piorzsmDicQ"
+        },
+        {
+          "program_id": "L_CH83_P4",
+          "start": 541,
+          "end": 673,
+          "genre": "news",
+          "score": 45,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        }
+      ]
+    },
+    {
+      "channel_id": 84,
+      "channel_name": "LIVE Stream 85",
+      "programs": [
+        {
+          "program_id": "L_CH84_P0",
+          "start": 0,
+          "end": 91,
+          "genre": "drama",
+          "score": 97,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH84_P1",
+          "start": 91,
+          "end": 186,
+          "genre": "news",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH84_P2",
+          "start": 186,
+          "end": 304,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH84_P3",
+          "start": 304,
+          "end": 340,
+          "genre": "news",
+          "score": 54,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH84_P4",
+          "start": 340,
+          "end": 481,
+          "genre": "news",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        }
+      ]
+    },
+    {
+      "channel_id": 85,
+      "channel_name": "LIVE Stream 86",
+      "programs": [
+        {
+          "program_id": "L_CH85_P0",
+          "start": 0,
+          "end": 34,
+          "genre": "news",
+          "score": 76,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH85_P1",
+          "start": 34,
+          "end": 86,
+          "genre": "news",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH85_P2",
+          "start": 86,
+          "end": 167,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=0rEZ9Kx_SVM"
+        },
+        {
+          "program_id": "L_CH85_P3",
+          "start": 167,
+          "end": 289,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=jFOIx7p4teQ"
+        },
+        {
+          "program_id": "L_CH85_P4",
+          "start": 289,
+          "end": 428,
+          "genre": "news",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        }
+      ]
+    },
+    {
+      "channel_id": 86,
+      "channel_name": "LIVE Stream 87",
+      "programs": [
+        {
+          "program_id": "L_CH86_P0",
+          "start": 0,
+          "end": 125,
+          "genre": "documentary",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH86_P1",
+          "start": 125,
+          "end": 231,
+          "genre": "news",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH86_P2",
+          "start": 231,
+          "end": 373,
+          "genre": "news",
+          "score": 43,
+          "link": "https://www.youtube.com/watch?v=1E5ZM4RWCCE"
+        },
+        {
+          "program_id": "L_CH86_P3",
+          "start": 373,
+          "end": 470,
+          "genre": "variety",
+          "score": 64,
+          "link": "https://www.youtube.com/watch?v=9UDkloqRd7s"
+        },
+        {
+          "program_id": "L_CH86_P4",
+          "start": 470,
+          "end": 574,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=CfLSE8zGRww"
+        }
+      ]
+    },
+    {
+      "channel_id": 87,
+      "channel_name": "LIVE Stream 88",
+      "programs": [
+        {
+          "program_id": "L_CH87_P0",
+          "start": 0,
+          "end": 145,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH87_P1",
+          "start": 145,
+          "end": 267,
+          "genre": "documentary",
+          "score": 44,
+          "link": "https://www.youtube.com/watch?v=JruBYA6Cdn0"
+        },
+        {
+          "program_id": "L_CH87_P2",
+          "start": 267,
+          "end": 330,
+          "genre": "news",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH87_P3",
+          "start": 330,
+          "end": 465,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH87_P4",
+          "start": 465,
+          "end": 491,
+          "genre": "news",
+          "score": 42,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        }
+      ]
+    },
+    {
+      "channel_id": 88,
+      "channel_name": "LIVE Stream 89",
+      "programs": [
+        {
+          "program_id": "L_CH88_P0",
+          "start": 0,
+          "end": 159,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        },
+        {
+          "program_id": "L_CH88_P1",
+          "start": 159,
+          "end": 230,
+          "genre": "talk",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        },
+        {
+          "program_id": "L_CH88_P2",
+          "start": 230,
+          "end": 331,
+          "genre": "documentary",
+          "score": 73,
+          "link": "https://www.youtube.com/watch?v=Jj0E03q6Zcw"
+        },
+        {
+          "program_id": "L_CH88_P3",
+          "start": 331,
+          "end": 387,
+          "genre": "news",
+          "score": 89,
+          "link": "https://www.youtube.com/watch?v=0rEZ9Kx_SVM"
+        },
+        {
+          "program_id": "L_CH88_P4",
+          "start": 387,
+          "end": 528,
+          "genre": "kids",
+          "score": 40,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        }
+      ]
+    },
+    {
+      "channel_id": 89,
+      "channel_name": "LIVE Stream 90",
+      "programs": [
+        {
+          "program_id": "L_CH89_P0",
+          "start": 0,
+          "end": 130,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=cmMNb1wo4sY"
+        },
+        {
+          "program_id": "L_CH89_P1",
+          "start": 130,
+          "end": 212,
+          "genre": "news",
+          "score": 88,
+          "link": "https://www.youtube.com/watch?v=IIvqXGAu-eU"
+        },
+        {
+          "program_id": "L_CH89_P2",
+          "start": 212,
+          "end": 240,
+          "genre": "news",
+          "score": 80,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH89_P3",
+          "start": 240,
+          "end": 371,
+          "genre": "news",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=yjw3XxJJFik"
+        },
+        {
+          "program_id": "L_CH89_P4",
+          "start": 371,
+          "end": 518,
+          "genre": "news",
+          "score": 59,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        }
+      ]
+    },
+    {
+      "channel_id": 90,
+      "channel_name": "LIVE Stream 91",
+      "programs": [
+        {
+          "program_id": "L_CH90_P0",
+          "start": 0,
+          "end": 111,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH90_P1",
+          "start": 111,
+          "end": 249,
+          "genre": "news",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=mCULxGfzPIg"
+        },
+        {
+          "program_id": "L_CH90_P2",
+          "start": 249,
+          "end": 352,
+          "genre": "news",
+          "score": 43,
+          "link": "https://www.youtube.com/watch?v=l_sEHUKTl-0"
+        },
+        {
+          "program_id": "L_CH90_P3",
+          "start": 352,
+          "end": 426,
+          "genre": "news",
+          "score": 48,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH90_P4",
+          "start": 426,
+          "end": 557,
+          "genre": "news",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=jy-l3ouFMS0"
+        }
+      ]
+    },
+    {
+      "channel_id": 91,
+      "channel_name": "LIVE Stream 92",
+      "programs": [
+        {
+          "program_id": "L_CH91_P0",
+          "start": 0,
+          "end": 75,
+          "genre": "kids",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH91_P1",
+          "start": 75,
+          "end": 134,
+          "genre": "talk",
+          "score": 79,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        },
+        {
+          "program_id": "L_CH91_P2",
+          "start": 134,
+          "end": 239,
+          "genre": "news",
+          "score": 68,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH91_P3",
+          "start": 239,
+          "end": 391,
+          "genre": "news",
+          "score": 83,
+          "link": "https://www.youtube.com/watch?v=w49ZSyfo36M"
+        },
+        {
+          "program_id": "L_CH91_P4",
+          "start": 391,
+          "end": 510,
+          "genre": "documentary",
+          "score": 71,
+          "link": "https://www.youtube.com/watch?v=2wMeRyp9hTI"
+        }
+      ]
+    },
+    {
+      "channel_id": 92,
+      "channel_name": "LIVE Stream 93",
+      "programs": [
+        {
+          "program_id": "L_CH92_P0",
+          "start": 0,
+          "end": 57,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH92_P1",
+          "start": 57,
+          "end": 159,
+          "genre": "drama",
+          "score": 82,
+          "link": "https://www.youtube.com/watch?v=E7QYG-D1o4Y"
+        },
+        {
+          "program_id": "L_CH92_P2",
+          "start": 159,
+          "end": 256,
+          "genre": "news",
+          "score": 73,
+          "link": "https://www.youtube.com/watch?v=Cj44GCykI6s"
+        },
+        {
+          "program_id": "L_CH92_P3",
+          "start": 256,
+          "end": 403,
+          "genre": "news",
+          "score": 51,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        },
+        {
+          "program_id": "L_CH92_P4",
+          "start": 403,
+          "end": 532,
+          "genre": "kids",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        }
+      ]
+    },
+    {
+      "channel_id": 93,
+      "channel_name": "LIVE Stream 94",
+      "programs": [
+        {
+          "program_id": "L_CH93_P0",
+          "start": 0,
+          "end": 80,
+          "genre": "news",
+          "score": 61,
+          "link": "https://www.youtube.com/watch?v=72fsBjqH63c"
+        },
+        {
+          "program_id": "L_CH93_P1",
+          "start": 80,
+          "end": 198,
+          "genre": "news",
+          "score": 85,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        },
+        {
+          "program_id": "L_CH93_P2",
+          "start": 198,
+          "end": 276,
+          "genre": "news",
+          "score": 86,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH93_P3",
+          "start": 276,
+          "end": 392,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=A816UNFXaS0"
+        },
+        {
+          "program_id": "L_CH93_P4",
+          "start": 392,
+          "end": 461,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=TPxlXo9X0gQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 94,
+      "channel_name": "LIVE Stream 95",
+      "programs": [
+        {
+          "program_id": "L_CH94_P0",
+          "start": 0,
+          "end": 108,
+          "genre": "documentary",
+          "score": 55,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH94_P1",
+          "start": 108,
+          "end": 201,
+          "genre": "talk",
+          "score": 94,
+          "link": "https://www.youtube.com/watch?v=fh9cNDi8RYI"
+        },
+        {
+          "program_id": "L_CH94_P2",
+          "start": 201,
+          "end": 316,
+          "genre": "documentary",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=dCPiEWlAbHo"
+        },
+        {
+          "program_id": "L_CH94_P3",
+          "start": 316,
+          "end": 350,
+          "genre": "news",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH94_P4",
+          "start": 350,
+          "end": 406,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=77eZBLxNrfo"
+        }
+      ]
+    },
+    {
+      "channel_id": 95,
+      "channel_name": "LIVE Stream 96",
+      "programs": [
+        {
+          "program_id": "L_CH95_P0",
+          "start": 0,
+          "end": 159,
+          "genre": "kids",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=dvd8E_bFpUM"
+        },
+        {
+          "program_id": "L_CH95_P1",
+          "start": 159,
+          "end": 210,
+          "genre": "drama",
+          "score": 98,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH95_P2",
+          "start": 210,
+          "end": 368,
+          "genre": "drama",
+          "score": 90,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH95_P3",
+          "start": 368,
+          "end": 498,
+          "genre": "drama",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=ncyPhh3jAqI"
+        },
+        {
+          "program_id": "L_CH95_P4",
+          "start": 498,
+          "end": 636,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=gWkhyPxMdEQ"
+        }
+      ]
+    },
+    {
+      "channel_id": 96,
+      "channel_name": "LIVE Stream 97",
+      "programs": [
+        {
+          "program_id": "L_CH96_P0",
+          "start": 0,
+          "end": 61,
+          "genre": "news",
+          "score": 84,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        },
+        {
+          "program_id": "L_CH96_P1",
+          "start": 61,
+          "end": 112,
+          "genre": "kids",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH96_P2",
+          "start": 112,
+          "end": 254,
+          "genre": "news",
+          "score": 91,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH96_P3",
+          "start": 254,
+          "end": 372,
+          "genre": "news",
+          "score": 56,
+          "link": "https://www.youtube.com/watch?v=2aQTYHc0DBM"
+        },
+        {
+          "program_id": "L_CH96_P4",
+          "start": 372,
+          "end": 496,
+          "genre": "kids",
+          "score": 81,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        }
+      ]
+    },
+    {
+      "channel_id": 97,
+      "channel_name": "LIVE Stream 98",
+      "programs": [
+        {
+          "program_id": "L_CH97_P0",
+          "start": 0,
+          "end": 150,
+          "genre": "music",
+          "score": 54,
+          "link": "https://www.youtube.com/watch?v=-dmkXtBolw8"
+        },
+        {
+          "program_id": "L_CH97_P1",
+          "start": 150,
+          "end": 216,
+          "genre": "kids",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=MYKt1Q-ntpI"
+        },
+        {
+          "program_id": "L_CH97_P2",
+          "start": 216,
+          "end": 358,
+          "genre": "news",
+          "score": 98,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH97_P3",
+          "start": 358,
+          "end": 503,
+          "genre": "news",
+          "score": 52,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        },
+        {
+          "program_id": "L_CH97_P4",
+          "start": 503,
+          "end": 657,
+          "genre": "news",
+          "score": 74,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        }
+      ]
+    },
+    {
+      "channel_id": 98,
+      "channel_name": "LIVE Stream 99",
+      "programs": [
+        {
+          "program_id": "L_CH98_P0",
+          "start": 0,
+          "end": 59,
+          "genre": "news",
+          "score": 62,
+          "link": "https://www.youtube.com/watch?v=MtpUWw94BVk"
+        },
+        {
+          "program_id": "L_CH98_P1",
+          "start": 59,
+          "end": 207,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=R-S3NUNTfjU"
+        },
+        {
+          "program_id": "L_CH98_P2",
+          "start": 207,
+          "end": 351,
+          "genre": "news",
+          "score": 49,
+          "link": "https://www.youtube.com/watch?v=oSPwBCMbkb4"
+        },
+        {
+          "program_id": "L_CH98_P3",
+          "start": 351,
+          "end": 467,
+          "genre": "news",
+          "score": 63,
+          "link": "https://www.youtube.com/watch?v=zi9knajcejY"
+        },
+        {
+          "program_id": "L_CH98_P4",
+          "start": 467,
+          "end": 597,
+          "genre": "variety",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=RPrsiPQZXlw"
+        }
+      ]
+    },
+    {
+      "channel_id": 99,
+      "channel_name": "LIVE Stream 100",
+      "programs": [
+        {
+          "program_id": "L_CH99_P0",
+          "start": 0,
+          "end": 117,
+          "genre": "news",
+          "score": 47,
+          "link": "https://www.youtube.com/watch?v=ZLAeXxW0Frk"
+        },
+        {
+          "program_id": "L_CH99_P1",
+          "start": 117,
+          "end": 176,
+          "genre": "news",
+          "score": 46,
+          "link": "https://www.youtube.com/watch?v=qar-SlBFlsc"
+        },
+        {
+          "program_id": "L_CH99_P2",
+          "start": 176,
+          "end": 209,
+          "genre": "news",
+          "score": 67,
+          "link": "https://www.youtube.com/watch?v=0rEZ9Kx_SVM"
+        },
+        {
+          "program_id": "L_CH99_P3",
+          "start": 209,
+          "end": 323,
+          "genre": "news",
+          "score": 73,
+          "link": "https://www.youtube.com/watch?v=Gqlgd8rORgI"
+        },
+        {
+          "program_id": "L_CH99_P4",
+          "start": 323,
+          "end": 398,
+          "genre": "news",
+          "score": 77,
+          "link": "https://www.youtube.com/watch?v=zneEMD-ZOSI"
+        }
+      ]
+    }
+  ]
+}
