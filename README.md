@@ -41,7 +41,7 @@ If installed successfully, this prints the version (e.g. `8.0.x`)
 Clone the repository and navigate into the project folder:
 
 ```bash
-git clone <your_repo_url>
+git clone https://github.com/shefketbylykbashi/YouTubeInstanceGenerator.git
 cd YouTubeInstanceGenerator
 ```
 
@@ -180,31 +180,6 @@ To avoid limits:
 
 ---
 
-## 🏗️ Future Enhancements
-Planned roadmap:
-- ⏱ More accurate program duration from metadata
-- 🧠 ML genre inference
-- 📊 Export to Excel (.xlsx)
-- 🐳 Docker image
-- 🖥 GUI for managing instances
-- 🌍 Multi-region parallel querying
-
----
-
 ## 👨‍💻 Author
 **Shefket Bylykbashi**  
-Master’s in Computer & Software Engineering  
 University of Prishtina  
-
----
-
-If you'd like, I can also add:
-
-✔ Badges (license, build, .NET version)  
-✔ Architecture diagram  
-✔ Screenshots & CSV preview  
-✔ GitHub wiki pages  
-✔ Publish as .NET Global Tool (`dotnet tool install`)  
-✔ Dockerfile & CI/CD pipeline
-
-Just tell me — happy to help 🚀
