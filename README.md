@@ -1,7 +1,7 @@
 # 📺 YouTube Instance Generator  
 ### 🎥 Generate Scheduling Instances from YouTube Live / Upcoming / Past Streams (C# / .NET)
 
-This CLI tool fetches livestream metadata from **YouTube Data API v3** and generates an **Instance JSON** file used for AI-based TV scheduling automation.
+This CLI tool fetches livestream metadata from **YouTube Data API v3** and generates an **Instance JSON** file.
 
 It supports:
 ✔ Live streams (`--mode=n`)  
