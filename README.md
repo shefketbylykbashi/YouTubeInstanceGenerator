@@ -178,8 +178,4 @@ To avoid limits:
 | `Missing required date params!` | UPCOMING/PAST require time range | Add `--start` and `--end` |
 | No results found | API region/filters might be restrictive | Expand time range |
 
----
 
-## 👨‍💻 Author
-**Shefket Bylykbashi**  
-University of Prishtina  
